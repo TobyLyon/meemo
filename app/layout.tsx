@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
+const NavBar = dynamic(() => import("@/components/NavBar"), { ssr: false });
 
 // Modern, bold font for English
 const outfit = Outfit({
@@ -28,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-Hant" className={`${outfit.variable} ${notoSansTC.variable}`}>
-      <body>{children}</body>
+      <body>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }

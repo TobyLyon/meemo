@@ -29,59 +29,7 @@ export default function UI() {
 
   return (
     <>
-      {/* Header - Always visible */}
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className={styles.header}
-      >
-        <div className={styles.logo}>
-          <span className={styles.logoText}>meemo</span>
-          <div className={styles.logoAccent} />
-        </div>
-        <nav className={styles.nav}>
-          <a
-            href="#story"
-            className={styles.navLink}
-            onClick={(e) => {
-              e.preventDefault();
-              const doc = document.documentElement;
-              const body = document.body;
-              const height = (body.scrollHeight || doc.scrollHeight) - window.innerHeight;
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            故事 story
-          </a>
-          <a
-            href="#world"
-            className={styles.navLink}
-            onClick={(e) => {
-              e.preventDefault();
-              const doc = document.documentElement;
-              const body = document.body;
-              const height = (body.scrollHeight || doc.scrollHeight) - window.innerHeight;
-              window.scrollTo({ top: height * 0.5, behavior: "smooth" });
-            }}
-          >
-            世界 world
-          </a>
-          <a
-            href="#journey"
-            className={styles.navLink}
-            onClick={(e) => {
-              e.preventDefault();
-              const doc = document.documentElement;
-              const body = document.body;
-              const height = (body.scrollHeight || doc.scrollHeight) - window.innerHeight;
-              window.scrollTo({ top: height * 0.98, behavior: "smooth" });
-            }}
-          >
-            旅程 journey
-          </a>
-        </nav>
-      </motion.header>
+      {/* Header moved to universal NavBar in layout */}
 
       {/* Scroll Progress Indicator */}
       <div className={styles.scrollIndicator}>
