@@ -39,9 +39,45 @@ export default function UI() {
           <div className={styles.logoAccent} />
         </div>
         <nav className={styles.nav}>
-          <a href="#story" className={styles.navLink}>故事 Story</a>
-          <a href="#world" className={styles.navLink}>世界 World</a>
-          <a href="#journey" className={styles.navLink}>旅程 Journey</a>
+          <a
+            href="#story"
+            className={styles.navLink}
+            onClick={(e) => {
+              e.preventDefault();
+              const doc = document.documentElement;
+              const body = document.body;
+              const height = (body.scrollHeight || doc.scrollHeight) - window.innerHeight;
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            故事 Story
+          </a>
+          <a
+            href="#world"
+            className={styles.navLink}
+            onClick={(e) => {
+              e.preventDefault();
+              const doc = document.documentElement;
+              const body = document.body;
+              const height = (body.scrollHeight || doc.scrollHeight) - window.innerHeight;
+              window.scrollTo({ top: height * 0.5, behavior: "smooth" });
+            }}
+          >
+            世界 World
+          </a>
+          <a
+            href="#journey"
+            className={styles.navLink}
+            onClick={(e) => {
+              e.preventDefault();
+              const doc = document.documentElement;
+              const body = document.body;
+              const height = (body.scrollHeight || doc.scrollHeight) - window.innerHeight;
+              window.scrollTo({ top: height * 0.98, behavior: "smooth" });
+            }}
+          >
+            旅程 Journey
+          </a>
         </nav>
       </motion.header>
 
@@ -62,9 +98,10 @@ export default function UI() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 0.6 }}
-            className={`${styles.contentSection} ${styles.centerY}`}
+            className={`${styles.contentSection} ${styles.aboveFooter}`}
+            id="story"
           >
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.cardCompact}`}>
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -120,9 +157,10 @@ export default function UI() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.6 }}
-            className={`${styles.contentSection} ${styles.centerY}`}
+            className={`${styles.contentSection} ${styles.aboveFooter}`}
+            id="world"
           >
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.cardCompact}`}>
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -173,13 +211,13 @@ export default function UI() {
                 >
                   <div className={styles.featureIcon}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="6" y="2" width="12" height="20" rx="2" />
-                      <circle cx="12" cy="18" r="1" fill="currentColor" />
-                      <path d="M9 6h6M9 10h6" />
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M7 12h10M12 7v10" opacity="0.4" />
+                      <circle cx="12" cy="12" r="3" fill="currentColor" />
                     </svg>
                   </div>
-                  <h3>傳奇誕生 · Becoming Beloved</h3>
-                  <p>從落魄到傳奇 · From rugged to iconic</p>
+                  <h3>社群代幣 · Community Token</h3>
+                  <p>Meemo memecoin · art in motion</p>
                 </motion.div>
               </div>
             </div>
@@ -197,6 +235,7 @@ export default function UI() {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.6 }}
             className={`${styles.contentSection} ${styles.aboveFooter}`}
+            id="journey"
           >
             <div className={`${styles.card} ${styles.cardCompact}`}>
               <motion.div
