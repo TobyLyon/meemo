@@ -4,6 +4,7 @@ export default function CRTFilter() {
   return (
     <div className="crt-overlay">
       <div className="crt-scanlines" />
+      <div className="crt-rgb" />
       <div className="crt-flicker" />
       <div className="crt-vignette" />
 
@@ -12,7 +13,7 @@ export default function CRTFilter() {
           position: fixed;
           inset: 0;
           pointer-events: none;
-          z-index: 9999;
+          z-index: 2147483647;
           mix-blend-mode: normal;
           filter: contrast(1.03) saturate(1.08) brightness(0.98);
         }
@@ -29,7 +30,23 @@ export default function CRTFilter() {
               rgba(0, 0, 0, 0.0) 2px,
               rgba(0, 0, 0, 0.0) 3px
             );
-          opacity: 0.15;
+          opacity: 0.22;
+          transform: translateZ(0);
+        }
+
+        /* RGB subpixel mask */
+        .crt-rgb {
+          position: absolute;
+          inset: 0;
+          background:
+            repeating-linear-gradient(
+              to right,
+              rgba(255, 0, 0, 0.06) 0px, rgba(255, 0, 0, 0.06) 1px,
+              rgba(0, 255, 0, 0.06) 1px, rgba(0, 255, 0, 0.06) 2px,
+              rgba(0, 0, 255, 0.06) 2px, rgba(0, 0, 255, 0.06) 3px
+            );
+          opacity: 0.08;
+          mix-blend-mode: screen;
           transform: translateZ(0);
         }
 
