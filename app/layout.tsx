@@ -3,6 +3,7 @@ import { Outfit, Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 const NavBar = dynamic(() => import("@/components/NavBar"), { ssr: false });
+const CRTFilter = dynamic(() => import("@/components/CRTFilter"), { ssr: false });
 
 // Modern, bold font for English
 const outfit = Outfit({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body>
         <NavBar />
         {children}
+        <CRTFilter />
       </body>
     </html>
   );
