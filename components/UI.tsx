@@ -72,7 +72,7 @@ export default function UI() {
                 className={styles.cardAccent}
               />
               <h1 className={styles.title}>
-                <span className={styles.titleMain}>Meemo's</span>
+                <span className={styles.titleMain}>Meemo&apos;s</span>
                 <span className={styles.titleSub}>Magic Land</span>
               </h1>
               <p className={styles.subtitle}>歡迎來到魔法國度 · Welcome to the Magic Land</p>
@@ -266,7 +266,7 @@ export default function UI() {
         className={styles.footer}
       >
         <div className={styles.footerContent}>
-          <p>© 2025 Meemo's Magic Land. All rights reserved.</p>
+          <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
             <a href="#" className={styles.socialLink}>Twitter</a>
             <a href="#" className={styles.socialLink}>Discord</a>
