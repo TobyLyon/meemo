@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import styles from "./UI.module.css";
 
 export default function NavBar() {
@@ -11,10 +12,10 @@ export default function NavBar() {
       transition={{ duration: 0.8, delay: 0.2 }}
       className={styles.header}
     >
-      <div className={styles.logo}>
+      <Link href="/" className={styles.logo}>
         <span className={styles.logoText}>meemo</span>
         <div className={styles.logoAccent} />
-      </div>
+      </Link>
       <nav className={styles.nav}>
         <a
           href="#story"
