@@ -1,8 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+
 export default function CRTFilter() {
-  return (
-    <div className="crt-overlay">
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted || typeof document === "undefined") return null;
+
+  return createPortal(
+    <div className="crt-overlay" aria-hidden="true">
       <div className="crt-scanlines" />
       <div className="crt-rgb" />
       <div className="crt-flicker" />
@@ -94,7 +102,8 @@ export default function CRTFilter() {
           100% { opacity: 0.03; }
         }
       `}</style>
-    </div>
+    </div>,
+    document.body
   );
 }
 
