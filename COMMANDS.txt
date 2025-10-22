@@ -1,0 +1,253 @@
+═══════════════════════════════════════════════════════════════════════════
+                    MEEMO'S MAGIC LAND - COMMAND REFERENCE
+═══════════════════════════════════════════════════════════════════════════
+
+📋 NPM COMMANDS
+──────────────────────────────────────────────────────────────────────────
+
+Development:
+  npm run dev              Start development server (localhost:3000)
+  
+Production:
+  npm run build            Build for production
+  npm start                Start production server
+  
+Maintenance:
+  npm run lint             Run ESLint checker
+  npm install              Install dependencies
+  npm update               Update packages
+  npm audit fix            Fix security vulnerabilities
+
+──────────────────────────────────────────────────────────────────────────
+
+⌨️ KEYBOARD SHORTCUTS
+──────────────────────────────────────────────────────────────────────────
+
+Ctrl + Shift + P         Toggle Performance Monitor (FPS counter)
+Ctrl + Shift + A         Toggle Animation Debugger (animation list)
+
+──────────────────────────────────────────────────────────────────────────
+
+🎨 QUICK CUSTOMIZATION COMMANDS
+──────────────────────────────────────────────────────────────────────────
+
+Change website title:
+  Edit: app/layout.tsx → metadata.title
+
+Change page background color:
+  Edit: app/globals.css → body background
+
+Adjust camera speed:
+  Edit: components/CameraController.tsx → angle multiplier
+
+Add more UI sections:
+  Edit: components/UI.tsx → Add new AnimatePresence block
+
+Change scroll breakpoints:
+  Edit: components/UI.tsx → activeSection calculation
+
+Modify lighting:
+  Edit: components/Scene.tsx → adjust light positions/intensities
+
+Enable/disable post-processing:
+  Edit: components/Scene.tsx → comment out <PostProcessing />
+
+Change colors:
+  Edit: components/UI.module.css → gradient colors
+
+──────────────────────────────────────────────────────────────────────────
+
+🔧 TROUBLESHOOTING COMMANDS
+──────────────────────────────────────────────────────────────────────────
+
+Clear cache and reinstall:
+  rm -rf node_modules package-lock.json
+  npm install
+
+Check for TypeScript errors:
+  npx tsc --noEmit
+
+View animation names in browser:
+  Open browser console (F12)
+  Look for "Available animations:" log
+  Or press Ctrl+Shift+A
+
+Fix port already in use:
+  Windows: netstat -ano | findstr :3000
+           taskkill /PID [PID_NUMBER] /F
+  
+  Mac/Linux: lsof -ti:3000 | xargs kill
+
+──────────────────────────────────────────────────────────────────────────
+
+📦 DEPLOYMENT COMMANDS
+──────────────────────────────────────────────────────────────────────────
+
+Vercel (Recommended):
+  npm install -g vercel
+  vercel login
+  vercel                   Deploy to preview
+  vercel --prod            Deploy to production
+
+Netlify:
+  npm install -g netlify-cli
+  netlify login
+  netlify deploy           Deploy to preview
+  netlify deploy --prod    Deploy to production
+
+Manual Static Export:
+  Add to next.config.js: output: 'export'
+  npm run build
+  Deploy the 'out' folder
+
+──────────────────────────────────────────────────────────────────────────
+
+🐛 DEBUG COMMANDS
+──────────────────────────────────────────────────────────────────────────
+
+Check Next.js version:
+  npm list next
+
+View all dependencies:
+  npm list --depth=0
+
+Check for outdated packages:
+  npm outdated
+
+Analyze bundle size:
+  npm run build
+  # Look for .next/analyze
+
+Clear Next.js cache:
+  rm -rf .next
+
+──────────────────────────────────────────────────────────────────────────
+
+🎯 PERFORMANCE TESTING
+──────────────────────────────────────────────────────────────────────────
+
+Test in browser:
+  1. Open http://localhost:3000
+  2. Press F12 (Developer Tools)
+  3. Go to "Performance" tab
+  4. Click record, scroll page, stop recording
+  5. Analyze framerate and performance
+
+Check FPS in real-time:
+  Press Ctrl+Shift+P while page is open
+
+Lighthouse audit:
+  1. Open Chrome DevTools (F12)
+  2. Go to "Lighthouse" tab
+  3. Select categories
+  4. Click "Analyze page load"
+
+──────────────────────────────────────────────────────────────────────────
+
+📝 FILE EDITING QUICK REFERENCE
+──────────────────────────────────────────────────────────────────────────
+
+Add new component:
+  1. Create: components/YourComponent.tsx
+  2. Import in: app/page.tsx
+  3. Add to JSX render
+
+Add new page:
+  1. Create: app/newpage/page.tsx
+  2. Access at: /newpage
+
+Add new API route:
+  1. Create: app/api/route/route.ts
+  2. Access at: /api/route
+
+Add global styles:
+  Edit: app/globals.css
+
+Add component styles:
+  Create: components/YourComponent.module.css
+  Import in component
+
+──────────────────────────────────────────────────────────────────────────
+
+🎬 ANIMATION CONTROL
+──────────────────────────────────────────────────────────────────────────
+
+Speed up animations:
+  Edit: components/MeemoWorld.tsx
+  Change: action.timeScale = 2  (2x speed)
+
+Pause animations:
+  Change: action.play() to action.pause()
+
+Play specific animation only:
+  if (key === 'AnimationName') { action.play(); }
+
+Reverse animation:
+  action.timeScale = -1
+
+──────────────────────────────────────────────────────────────────────────
+
+🌐 BROWSER TESTING
+──────────────────────────────────────────────────────────────────────────
+
+Test on different devices:
+  Open: http://localhost:3000
+  Press: F12 → Toggle device toolbar
+  Select: Different device presets
+
+Test on mobile device (same network):
+  Find your IP: ipconfig (Windows) or ifconfig (Mac/Linux)
+  On mobile: http://YOUR_IP:3000
+
+Cross-browser testing:
+  Chrome:  Default development browser
+  Firefox: Test WebGL compatibility
+  Safari:  Test iOS compatibility
+  Edge:    Test Windows compatibility
+
+──────────────────────────────────────────────────────────────────────────
+
+💡 USEFUL TIPS
+──────────────────────────────────────────────────────────────────────────
+
+Hot reload is automatic:
+  • Just save files and changes appear instantly
+  • No need to refresh browser
+
+Console logs for debugging:
+  • Check browser console for animation names
+  • Check terminal for Next.js errors
+
+Performance optimization:
+  • Reduce Stars count if FPS drops
+  • Disable post-processing for better performance
+  • Lower shadow map sizes
+
+Git workflow:
+  git add .
+  git commit -m "Your message"
+  git push origin main
+
+Environment variables:
+  Create: .env.local
+  Access: process.env.VARIABLE_NAME
+
+──────────────────────────────────────────────────────────────────────────
+
+🎉 YOU'RE ALL SET!
+──────────────────────────────────────────────────────────────────────────
+
+Your development server should be running at:
+→ http://localhost:3000
+
+Press Ctrl+C in terminal to stop the server
+
+Need help? Check:
+  • QUICKSTART.txt - Getting started guide
+  • PROJECT_SUMMARY.txt - Full project overview
+  • FEATURES.txt - Complete feature list
+
+Happy developing! 🚀✨
+
+═══════════════════════════════════════════════════════════════════════════
+

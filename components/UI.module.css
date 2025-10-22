@@ -1,0 +1,474 @@
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 30, 0.9) 0%,
+    rgba(15, 15, 30, 0.4) 80%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-outfit), sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.logoAccent {
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.nav {
+  display: flex;
+  gap: 3rem;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 0.1em;
+}
+
+.navLink:hover {
+  color: #4ecdc4;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #4ecdc4;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  border-radius: 1px;
+}
+
+.scrollProgress {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #4ecdc4, #ff6b6b);
+  transform-origin: top;
+  border-radius: 1px;
+}
+
+/* Content Sections */
+.contentSection {
+  position: fixed;
+  right: 5vw; /* push panel to the right on desktop */
+  left: auto;
+  z-index: 200; /* ensure panel is above blurred footer */
+  width: 88%;
+  max-width: 420px;
+  pointer-events: none;
+}
+
+/* Vertical centering helper (overridable on mobile) */
+.centerY {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Keep a panel clear of the footer */
+.aboveFooter {
+  top: auto;
+  bottom: 96px; /* sit above blurred footer */
+  transform: none;
+}
+
+.card {
+  position: relative;
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px; /* more rectangular */
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  overflow: hidden; /* ensure top accent doesn't bleed outside rounded corners */
+}
+
+.cardCompact {
+  padding: 1.25rem;
+}
+
+.cardAccent {
+  position: absolute;
+  top: 0; /* align to top edge to avoid overhang */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56%; /* slightly narrower so it never touches rounded corners */
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+  border-radius: 2px;
+}
+
+/* Typography */
+.title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.titleMain {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff, #4ecdc4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleSub {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.2em;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* Token copy button */
+.tokenButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.1s ease;
+}
+
+.tokenButton:hover {
+  border-color: #4ecdc4;
+  background: rgba(78, 205, 196, 0.08);
+}
+
+.tokenLabel {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.tokenAddress {
+  margin-left: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  color: #4ecdc4;
+}
+
+.copyIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
+}
+
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.kanji {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle > span:last-child {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Scroll Hint */
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+}
+
+.scrollArrow {
+  font-size: 1.5rem;
+}
+
+/* Features Grid */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  text-align: center;
+}
+
+.featureIcon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: #4ecdc4;
+}
+
+.featureIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Coming Soon Section */
+.comingSoon {
+  text-align: center;
+}
+
+.comingSoonBadge {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.releaseText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.releaseTextCompact {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #4ecdc4, #44a3d5);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.primaryButton:hover {
+  box-shadow: 0 15px 40px rgba(78, 205, 196, 0.5);
+  transform: translateY(-2px);
+}
+
+.secondaryButton:hover {
+  border-color: #4ecdc4;
+  background: rgba(78, 205, 196, 0.1);
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 4rem;
+  z-index: 100;
+  background: linear-gradient(
+    0deg,
+    rgba(15, 15, 30, 0.9) 0%,
+    rgba(15, 15, 30, 0.4) 80%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.socialLink {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #4ecdc4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contentSection {
+    right: 4%;
+    left: 4%;
+    width: auto;
+    max-width: none;
+  }
+
+  .centerY {
+    top: auto;
+    bottom: 6%;
+    transform: none; /* avoid covering the model */
+  }
+
+  .aboveFooter {
+    bottom: 80px; /* slightly tighter on mobile */
+  }
+
+  .header {
+    padding: 0 2rem;
+  }
+
+  .nav {
+    gap: 1.5rem;
+  }
+
+  .navLink {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .titleMain {
+    font-size: 2.5rem;
+  }
+
+  .titleSub {
+    font-size: 2rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .footer {
+    padding: 1.5rem 2rem;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .scrollIndicator {
+    right: 1rem;
+    height: 150px;
+  }
+}
+
