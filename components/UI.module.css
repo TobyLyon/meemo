@@ -34,11 +34,7 @@
 }
 
 .logoAccent {
-  height: 2px;
-  width: 100%;
-  background: #ffffff;
-  margin-top: 4px;
-  opacity: 0.8;
+  display: none;
 }
 
 .nav {
