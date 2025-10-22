@@ -5,9 +5,17 @@ import { createPortal } from "react-dom";
 
 export default function CRTFilter() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    console.log("✅ CRT Filter mounted");
+  }, []);
 
-  if (!mounted || typeof document === "undefined") return null;
+  if (!mounted || typeof document === "undefined") {
+    console.log("⏸️ CRT Filter not ready");
+    return null;
+  }
+
+  console.log("🎨 CRT Filter rendering...");
 
   return createPortal(
     <div className="crt-overlay" aria-hidden="true">
@@ -19,11 +27,17 @@ export default function CRTFilter() {
       <style jsx>{`
         .crt-overlay {
           position: fixed;
-          inset: 0;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100vw;
+          height: 100vh;
           pointer-events: none;
           z-index: 2147483647;
           mix-blend-mode: normal;
           filter: contrast(1.03) saturate(1.08) brightness(0.98);
+          background: rgba(255, 0, 0, 0.15);
         }
 
         /* Horizontal scanlines */
