@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import styles from "./UI.module.css";
 
 export default function UI() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -280,6 +282,7 @@ export default function UI() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={styles.primaryButton}
+                    onClick={() => router.push("/community")}
                   >
                     加入社群 · Join Community
                   </motion.button>
@@ -287,8 +290,9 @@ export default function UI() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={styles.secondaryButton}
+                    onClick={() => router.push("/hiring")}
                   >
-                    代幣資訊 · Tokenomics
+                    招募資訊 · Hiring
                   </motion.button>
                 </div>
               </motion.div>
@@ -307,9 +311,9 @@ export default function UI() {
         <div className={styles.footerContent}>
           <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
-            <a href="#" className={styles.socialLink}>Twitter</a>
-            <a href="#" className={styles.socialLink}>Discord</a>
-            <a href="#" className={styles.socialLink}>YouTube</a>
+            <a href="#" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="#" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Discord</a>
+            <a href="#" className={styles.socialLink} target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
         </div>
       </motion.footer>

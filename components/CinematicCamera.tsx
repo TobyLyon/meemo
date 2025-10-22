@@ -30,6 +30,7 @@ export default function CinematicCamera({
   const START_FOV = 30; // zoomed-in at start (narrower FOV)
   const END_FOV = 50; // default FOV later in the path
   const ZOOM_SECTION = 0.25; // first 25% of scroll transitions FOV
+  const PATH_COVERAGE = 0.9; // cover only 90% of the curve to cut the end
 
   // Try to discover waypoints from the GLB by node names like CamPath_01, CamPath_02, ...
   const discoveredWaypoints = useMemo(() => {
@@ -160,9 +161,12 @@ export default function CinematicCamera({
     // Apply offset so camera starts perfectly aligned with the cat
     // Use raw smoothedT (not offsetT) for effects to prevent wrap glitches
     const effectiveOffset = discoveredWaypoints.length >= 2 ? 0 : START_OFFSET;
-    const offsetT = (smoothedT.current + effectiveOffset) % 1;
+    const offsetStart = effectiveOffset;
+    const offsetEnd = Math.min(effectiveOffset + PATH_COVERAGE, 0.999);
+    const offsetT = offsetStart + (offsetEnd - offsetStart) * smoothedT.current;
     const pos = curve.getPointAt(offsetT).clone();
-    const ahead = curve.getPointAt((offsetT + 0.002) % 1).clone();
+    const aheadT = Math.min(offsetT + 0.002, offsetEnd);
+    const ahead = curve.getPointAt(aheadT).clone();
 
     // Safety: keep camera outside a minimum horizontal radius to avoid clipping through the building
     const horizLen = Math.hypot(pos.x, pos.z);
