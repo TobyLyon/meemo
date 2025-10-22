@@ -1,3 +1,5 @@
+"use client";
+
 export default function CRTFilter() {
   return (
     <div className="crt-overlay">
