@@ -37,7 +37,7 @@ export default function UI() {
         className={styles.header}
       >
         <div className={styles.logo}>
-          <span className={styles.logoText}>Meemo</span>
+          <span className={styles.logoText}>meemo</span>
           <div className={styles.logoAccent} />
         </div>
         <nav className={styles.nav}>
