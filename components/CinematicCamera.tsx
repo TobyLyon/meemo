@@ -27,6 +27,9 @@ export default function CinematicCamera({
   const START_OFFSET = 0.08; // start slightly further along path for perfect cat alignment
   const START_HEIGHT_DROP = 2.4; // lower camera at start for upward angle (2x)
   const START_LOOK_LIFT = 1.6; // raise look target at start for dramatic upward tilt (2x)
+  const START_FOV = 30; // zoomed-in at start (narrower FOV)
+  const END_FOV = 50; // default FOV later in the path
+  const ZOOM_SECTION = 0.25; // first 25% of scroll transitions FOV
 
   // Try to discover waypoints from the GLB by node names like CamPath_01, CamPath_02, ...
   const discoveredWaypoints = useMemo(() => {
@@ -57,6 +60,17 @@ export default function CinematicCamera({
     return ordered;
   }, [scene]);
 
+  // Optional explicit start marker named "CamStart" in the GLB
+  const startMarker = useMemo(() => {
+    let marker: THREE.Vector3 | null = null;
+    scene.traverse((obj) => {
+      if (obj.name === "CamStart") {
+        marker = obj.getWorldPosition(new THREE.Vector3());
+      }
+    });
+    return marker;
+  }, [scene]);
+
   const waypoints: Waypoint[] = useMemo(() => {
     if (externalWaypoints && externalWaypoints.length >= 2) return externalWaypoints;
     if (discoveredWaypoints.length >= 2) return discoveredWaypoints;
@@ -74,18 +88,43 @@ export default function CinematicCamera({
     return fallback;
   }, [externalWaypoints, discoveredWaypoints]);
 
-  // Rotate waypoints so the start is directly head-on to the model:
-  // prioritize positions along +Z axis (minimal X offset) with high Y.
+  // Determine waypoint ordering:
+  // - If GLB waypoints exist, honor their order (CamPath_01..). If a CamStart
+  //   marker exists, rotate so the nearest waypoint becomes first.
+  // - Otherwise (fallback), auto-pick a pleasant head-on start.
   const rotatedWaypoints = useMemo(() => {
     if (waypoints.length === 0) return waypoints;
-    const centerlineDir = new THREE.Vector3(0, 0, 1); // ideal direction: +Z
+
+    // If we discovered explicit GLB waypoints, trust creator intent
+    if (discoveredWaypoints.length >= 2) {
+      if (startMarker) {
+        // Rotate so the waypoint closest to the start marker is first
+        let nearestIdx = 0;
+        let nearestDist = Infinity;
+        discoveredWaypoints.forEach((w, i) => {
+          const d = w.position.distanceTo(startMarker!);
+          if (d < nearestDist) {
+            nearestDist = d;
+            nearestIdx = i;
+          }
+        });
+        return [
+          ...discoveredWaypoints.slice(nearestIdx),
+          ...discoveredWaypoints.slice(0, nearestIdx),
+        ];
+      }
+      // No explicit start marker: keep provided order (CamPath_01 is start)
+      return discoveredWaypoints;
+    }
+
+    // Fallback path: auto-pick a good head-on start
+    const centerlineDir = new THREE.Vector3(0, 0, 1);
     let bestScore = -Infinity;
     let startIdx = 0;
     waypoints.forEach((w, i) => {
       const horiz = new THREE.Vector3(w.position.x, 0, w.position.z).normalize();
-      const dirDot = horiz.dot(centerlineDir); // how aligned to +Z
-      const xOffset = Math.abs(w.position.x); // prefer minimal lateral offset
-      // Combine: high alignment to +Z, low X offset, decent height
+      const dirDot = horiz.dot(centerlineDir);
+      const xOffset = Math.abs(w.position.x);
       const score = dirDot * 20 - xOffset * 2 + w.position.y * 0.4;
       if (score > bestScore) {
         bestScore = score;
@@ -93,7 +132,7 @@ export default function CinematicCamera({
       }
     });
     return [...waypoints.slice(startIdx), ...waypoints.slice(0, startIdx)];
-  }, [waypoints]);
+  }, [waypoints, discoveredWaypoints, startMarker]);
 
   const curve = useMemo(() => {
     const pts = rotatedWaypoints.map((w) => w.position);
@@ -120,7 +159,8 @@ export default function CinematicCamera({
 
     // Apply offset so camera starts perfectly aligned with the cat
     // Use raw smoothedT (not offsetT) for effects to prevent wrap glitches
-    const offsetT = (smoothedT.current + START_OFFSET) % 1;
+    const effectiveOffset = discoveredWaypoints.length >= 2 ? 0 : START_OFFSET;
+    const offsetT = (smoothedT.current + effectiveOffset) % 1;
     const pos = curve.getPointAt(offsetT).clone();
     const ahead = curve.getPointAt((offsetT + 0.002) % 1).clone();
 
@@ -162,6 +202,18 @@ export default function CinematicCamera({
 
     camera.position.lerp(pulledBack, 0.18);
     camera.lookAt(look);
+
+    // Cinematic zoom: start zoomed-in (lower FOV), ease out to normal FOV
+    const zoomPhase = Math.min(smoothedT.current / ZOOM_SECTION, 1);
+    const easedZoom = easeInOutCubic(zoomPhase);
+    const desiredFov = THREE.MathUtils.lerp(START_FOV, END_FOV, easedZoom);
+    const maybePerspective = camera as THREE.PerspectiveCamera;
+    if ((maybePerspective as any).isPerspectiveCamera) {
+      if (maybePerspective.fov !== desiredFov) {
+        maybePerspective.fov = desiredFov;
+        maybePerspective.updateProjectionMatrix();
+      }
+    }
   });
 
   return null;

@@ -77,7 +77,7 @@ export default function UI() {
               </h1>
               <p className={styles.subtitle}>歡迎來到魔法國度 · Welcome to the Magic Land</p>
               <p className={styles.description}>
-                Step into Meemo's Magic Land — a quiet spark under starlit skies, where small wishes grow into luminous worlds.
+                你的任務：把破舊的 Meemo 修補成世界最受喜愛的泰迪熊 · Your quest: restore Meemo from worn to beloved.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -146,8 +146,8 @@ export default function UI() {
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                   </div>
-                  <h3>魔法之光 · Luminous Art</h3>
-                  <p>故事在光影間綻放 · Stories bloom in light and shadow</p>
+                  <h3>修補之旅 · The Repair Journey</h3>
+                  <p>收集碎片、縫補裂痕 · Gather pieces, mend the seams</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -162,8 +162,8 @@ export default function UI() {
                       <path d="M2 12h20M12 2v20" opacity="0.5" />
                     </svg>
                   </div>
-                  <h3>旅者同行 · Wanderers Together</h3>
-                  <p>同心築夢 · Dreams woven together</p>
+                  <h3>心之火花 · Heart Sparks</h3>
+                  <p>善意會發光 · Kindness powers your progress</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -178,8 +178,8 @@ export default function UI() {
                       <path d="M9 6h6M9 10h6" />
                     </svg>
                   </div>
-                  <h3>奇想之門 · Gate of Whimsy</h3>
-                  <p>笑語與靈感的交界 · Where humor meets wonder</p>
+                  <h3>傳奇誕生 · Becoming Beloved</h3>
+                  <p>從落魄到傳奇 · From rugged to iconic</p>
                 </motion.div>
               </div>
             </div>
@@ -218,7 +218,7 @@ export default function UI() {
               >
                 <div className={styles.comingSoonBadge}>即將啟航 · Setting Sail</div>
                 <p className={`${styles.releaseText} ${styles.releaseTextCompact}`}>
-                  The gates shimmer open soon — keep your lantern ready.
+                  一起修補 Meemo — 即將啟程 · Help mend Meemo — coming soon.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
