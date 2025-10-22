@@ -52,7 +52,7 @@ export default function UI() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            故事 Story
+            故事 story
           </a>
           <a
             href="#world"
@@ -65,7 +65,7 @@ export default function UI() {
               window.scrollTo({ top: height * 0.5, behavior: "smooth" });
             }}
           >
-            世界 World
+            世界 world
           </a>
           <a
             href="#journey"
@@ -78,7 +78,7 @@ export default function UI() {
               window.scrollTo({ top: height * 0.98, behavior: "smooth" });
             }}
           >
-            旅程 Journey
+            旅程 journey
           </a>
         </nav>
       </motion.header>
