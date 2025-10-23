@@ -25,8 +25,8 @@ export default function CinematicCamera({
   const LOOK_Y = 1.2; // default vertical look target
   const MID_LIFT = 2.0; // extra vertical lift at mid-scroll to clear building
   const START_OFFSET = 0.08; // start slightly further along path for perfect cat alignment
-  const START_HEIGHT_DROP = 2.4; // lower camera at start for upward angle (2x)
-  const START_LOOK_LIFT = 1.6; // raise look target at start for dramatic upward tilt (2x)
+  const START_HEIGHT_DROP = 3.0; // lower camera at start for upward angle (slightly stronger)
+  const START_LOOK_LIFT = 1.0; // raise look target at start for dramatic upward tilt (reduced)
   const START_FOV = 30; // zoomed-in at start (narrower FOV)
   const END_FOV = 50; // default FOV later in the path
   const ZOOM_SECTION = 0.25; // first 25% of scroll transitions FOV
