@@ -153,10 +153,16 @@ export default function CinematicCamera({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     // Smooth the scroll value for cinematic feel
     const targetT = easeInOutCubic(scrollT);
-    smoothedT.current += (targetT - smoothedT.current) * 0.06;
+    // Frame-rate aware damping for smoother interpolation
+    smoothedT.current = THREE.MathUtils.damp(
+      smoothedT.current,
+      targetT,
+      3.0,
+      Math.max(0.001, delta)
+    );
 
     // Apply offset so camera starts perfectly aligned with the cat
     // Use raw smoothedT (not offsetT) for effects to prevent wrap glitches
@@ -204,7 +210,7 @@ export default function CinematicCamera({
     const toLook = new THREE.Vector3().subVectors(look, pos).normalize();
     const pulledBack = pos.clone().addScaledVector(toLook, -0.5);
 
-    camera.position.lerp(pulledBack, 0.18);
+    camera.position.lerp(pulledBack, 0.14);
     camera.lookAt(look);
 
     // Cinematic zoom: start zoomed-in (lower FOV), ease out to normal FOV

@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import styles from "./UI.module.css";
 
 export default function UI() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const smoothed = useRef(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -23,9 +24,17 @@ export default function UI() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Determine which section is active based on scroll
-  const activeSection = 
-    scrollProgress < 0.33 ? 0 : scrollProgress < 0.66 ? 1 : 2;
+  // Smooth the progress value to reduce abrupt transitions
+  smoothed.current += (scrollProgress - smoothed.current) * 0.1;
+
+  // Add a small hysteresis so sections don't flicker near boundaries
+  const thresholds = useRef({ a: 0.33, b: 0.66 });
+  const activeSection = useMemo(() => {
+    const t = smoothed.current;
+    if (t < thresholds.current.a - 0.02) return 0;
+    if (t > thresholds.current.b + 0.02) return 2;
+    return t < 0.5 ? 1 * (t >= thresholds.current.a) : 1;
+  }, [smoothed.current]);
 
   return (
     <>
@@ -35,7 +44,7 @@ export default function UI() {
       <div className={styles.scrollIndicator}>
         <motion.div
           className={styles.scrollProgress}
-          style={{ scaleY: scrollProgress }}
+          style={{ scaleY: smoothed.current }}
         />
       </div>
 
