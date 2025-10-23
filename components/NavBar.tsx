@@ -54,6 +54,30 @@ export default function NavBar() {
         >
           旅程 journey
         </a>
+        <a
+          href="https://www.binance.com/"
+          className={styles.navLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Binance"
+          title="Binance"
+          style={{ display: "inline-flex", alignItems: "center" }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="#F3BA2F"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <polygon points="12,4 14,6 12,8 10,6" />
+            <polygon points="6,10 8,12 6,14 4,12" />
+            <polygon points="18,10 20,12 18,14 16,12" />
+            <polygon points="12,16 14,18 12,20 10,18" />
+            <polygon points="12,10 14,12 12,14 10,12" />
+          </svg>
+        </a>
       </nav>
     </motion.header>
   );
