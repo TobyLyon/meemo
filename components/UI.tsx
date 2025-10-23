@@ -259,7 +259,7 @@ export default function UI() {
         <div className={styles.footerContent}>
           <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
-            <a href="#" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://x.com/MeemosMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
             <a href="#" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Discord</a>
             <a href="#" className={styles.socialLink} target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
