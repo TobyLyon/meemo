@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import styles from "./UI.module.css";
@@ -29,12 +29,17 @@ export default function UI() {
 
   // Add a small hysteresis so sections don't flicker near boundaries
   const thresholds = useRef({ a: 0.33, b: 0.66 });
-  const activeSection = useMemo(() => {
-    const t = smoothed.current;
-    if (t < thresholds.current.a - 0.02) return 0;
-    if (t > thresholds.current.b + 0.02) return 2;
-    return t < 0.5 ? 1 * (t >= thresholds.current.a) : 1;
-  }, [smoothed.current]);
+  const t = smoothed.current;
+  let activeSection: 0 | 1 | 2;
+  if (t < thresholds.current.a - 0.02) {
+    activeSection = 0;
+  } else if (t > thresholds.current.b + 0.02) {
+    activeSection = 2;
+  } else if (t < 0.5) {
+    activeSection = t >= thresholds.current.a ? 1 : 0;
+  } else {
+    activeSection = 1;
+  }
 
   return (
     <>
