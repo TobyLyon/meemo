@@ -22,6 +22,22 @@ const notoSansTC = Noto_Sans_TC({
 export const metadata: Metadata = {
   title: "Meemo's Magic Land",
   description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
+  icons: {
+    icon: "/meemo%20pfp.png",
+    apple: "/meemo%20pfp.png",
+    shortcut: "/meemo%20pfp.png",
+  },
+  openGraph: {
+    title: "Meemo's Magic Land",
+    description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
+    images: ["/meemos%20banner.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Meemo's Magic Land",
+    description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
+    images: ["/meemos%20banner.png"],
+  },
 };
 
 export default function RootLayout({
