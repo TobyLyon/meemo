@@ -404,9 +404,9 @@
 @media (max-width: 768px) {
   .contentSection {
     right: 4%;
-    left: 4%;
-    width: auto;
-    max-width: none;
+    left: auto;
+    width: 86%;
+    max-width: 360px;
   }
 
   .centerY {
@@ -416,7 +416,7 @@
   }
 
   .aboveFooter {
-    bottom: 80px; /* slightly tighter on mobile */
+    bottom: 72px; /* slightly tighter on mobile */
   }
 
   .header {
@@ -432,15 +432,18 @@
   }
 
   .card {
-    padding: 2rem;
+    padding: 1rem;
+    background: rgba(26, 26, 46, 0.5);
+    max-height: 52vh;
+    overflow: auto;
   }
 
   .titleMain {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .titleSub {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 
   .featureGrid {
@@ -463,8 +466,7 @@
   }
 
   .scrollIndicator {
-    right: 1rem;
-    height: 150px;
+    display: none;
   }
 }
 
