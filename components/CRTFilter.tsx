@@ -42,7 +42,7 @@ export default function CRTFilter() {
               rgba(0, 0, 0, 0.0) 2px,
               rgba(0, 0, 0, 0.0) 3px
             );
-          opacity: 0.22;
+          opacity: 0.30;
           transform: translateZ(0);
         }
 
@@ -57,7 +57,7 @@ export default function CRTFilter() {
               rgba(0, 255, 0, 0.06) 1px, rgba(0, 255, 0, 0.06) 2px,
               rgba(0, 0, 255, 0.06) 2px, rgba(0, 0, 255, 0.06) 3px
             );
-          opacity: 0.08;
+          opacity: 0.14;
           mix-blend-mode: screen;
           transform: translateZ(0);
         }
@@ -72,7 +72,7 @@ export default function CRTFilter() {
             rgba(0, 0, 0, 0) 60%
           );
           animation: crt-flicker 8s infinite steps(1, end);
-          opacity: 0.05;
+          opacity: 0.08;
         }
 
         /* Darkened corners for tube-like vignette */
@@ -82,12 +82,12 @@ export default function CRTFilter() {
           background: radial-gradient(
             120% 100% at 50% 50%,
             rgba(0, 0, 0, 0) 55%,
-            rgba(0, 0, 0, 0.15) 75%,
-            rgba(0, 0, 0, 0.35) 100%
+            rgba(0, 0, 0, 0.20) 75%,
+            rgba(0, 0, 0, 0.45) 100%
           );
           box-shadow:
-            inset 0 0 80px rgba(0, 0, 0, 0.35),
-            inset 0 0 140px rgba(0, 0, 0, 0.25);
+            inset 0 0 100px rgba(0, 0, 0, 0.45),
+            inset 0 0 160px rgba(0, 0, 0, 0.30);
         }
 
         @keyframes crt-flicker {

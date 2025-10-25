@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import MeemoWorld from "./MeemoWorld";
 import CinematicCamera from "./CinematicCamera";
-// import PostProcessing from "./PostProcessing";
+import PostProcessing from "./PostProcessing";
 import { Environment, Stars } from "@react-three/drei";
 
 export default function Scene() {
@@ -57,10 +57,10 @@ export default function Scene() {
         {/* Cinematic Camera Path Controller */}
         <CinematicCamera />
         
-        {/* Post Processing Effects - disabled for compatibility */}
-        {/* <Suspense fallback={null}>
+        {/* Post Processing Effects */}
+        <Suspense fallback={null}>
           <PostProcessing />
-        </Suspense> */}
+        </Suspense>
       </Canvas>
     </div>
   );
