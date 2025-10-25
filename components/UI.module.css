@@ -403,10 +403,10 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .contentSection {
-    right: 4%;
-    left: auto;
-    width: 86%;
-    max-width: 360px;
+    right: 2.5%;
+    left: 2.5%;
+    width: auto;
+    max-width: calc(100% - 5%);
   }
 
   .centerY {
@@ -432,27 +432,28 @@
   }
 
   .card {
-    padding: 1rem;
-    background: rgba(26, 26, 46, 0.5);
-    max-height: 52vh;
-    overflow: auto;
+    padding: 0.85rem;
+    background: rgba(26, 26, 46, 0.55);
+    max-height: 46vh;
+    overflow-y: auto;
   }
 
   .titleMain {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .titleSub {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
 
   .featureGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .buttonGroup {
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .footer {
@@ -467,6 +468,48 @@
 
   .scrollIndicator {
     display: none;
+  }
+
+  /* Mobile-only truncation & compact text */
+  .subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+  }
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .tokenButton {
+    padding: 0.6rem 0.8rem;
+  }
+  .tokenAddress {
+    font-size: 0.8rem;
+  }
+  .sectionTitle > span:last-child {
+    font-size: 1.2rem;
+  }
+  .kanji {
+    font-size: 1.6rem;
+  }
+  .feature h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+  .feature p {
+    font-size: 0.85rem;
+  }
+  .comingSoonBadge {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .releaseText,
+  .releaseTextCompact {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
   }
 }
 

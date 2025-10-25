@@ -76,9 +76,9 @@ export default function UI() {
                 <span className={styles.titleMain}>Meemo&apos;s</span>
                 <span className={styles.titleSub}>Magic Land</span>
               </h1>
-              <p className={styles.subtitle}>歡迎來到魔法國度 · Welcome to the Magic Land</p>
+              <p className={styles.subtitle}>歡迎來到魔法國度 · Welcome</p>
               <p className={styles.description}>
-                你的任務：把破舊的 Meemo 修補成世界最受喜愛的泰迪熊 · Your quest: restore Meemo from worn to beloved.
+                修補 Meemo · Restore Meemo
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -148,8 +148,8 @@ export default function UI() {
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                   </div>
-                  <h3>修補之旅 · The Repair Journey</h3>
-                  <p>收集碎片、縫補裂痕 · Gather pieces, mend the seams</p>
+                  <h3>修補之旅 · Repair Journey</h3>
+                  <p>收集、縫補 · Gather & mend</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -164,8 +164,8 @@ export default function UI() {
                       <path d="M2 12h20M12 2v20" opacity="0.5" />
                     </svg>
                   </div>
-                  <h3>心之火花 · Heart Sparks</h3>
-                  <p>善意會發光 · Kindness powers your progress</p>
+                  <h3>心之火花 · Heart</h3>
+                  <p>善意發光 · Kindness fuels</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -180,8 +180,8 @@ export default function UI() {
                       <circle cx="12" cy="12" r="3" fill="currentColor" />
                     </svg>
                   </div>
-                  <h3>社群代幣 · Community Token</h3>
-                  <p>Meemo memecoin · art in motion</p>
+                  <h3>社群代幣 · Token</h3>
+                  <p>memecoin · art</p>
                 </motion.div>
               </div>
             </div>
@@ -248,7 +248,7 @@ export default function UI() {
                       window.open("https://t.me/MeemoPortal", "_blank", "noopener,noreferrer");
                     }}
                   >
-                    加入社群 · Join Community
+                    加入社群 · Join
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -256,7 +256,7 @@ export default function UI() {
                     className={styles.secondaryButton}
                     onClick={() => router.push("/hiring")}
                   >
-                    招募資訊 · Hiring
+                    招募 · Hiring
                   </motion.button>
                 </div>
               </motion.div>
