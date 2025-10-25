@@ -76,7 +76,7 @@ export default function SoundToggle() {
     }
     add();
     return remove;
-  }, []);
+  }, [startPlaybackWithFadeIn]);
 
   useEffect(() => {
     const audio = audioRef.current;

@@ -23,9 +23,12 @@ export const metadata: Metadata = {
   title: "Meemo's Magic Land",
   description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
   icons: {
-    icon: "/meemo-pfp.png?v=2",
-    apple: "/meemo-pfp.png?v=2",
-    shortcut: "/meemo-pfp.png?v=2",
+    icon: [
+      { url: "/meemo-pfp.png?v=3", type: "image/png" },
+      { url: "/favicon.ico?v=3" },
+    ],
+    apple: "/meemo-pfp.png?v=3",
+    shortcut: "/meemo-pfp.png?v=3",
   },
   openGraph: {
     title: "Meemo's Magic Land",
@@ -48,9 +51,11 @@ export default function RootLayout({
   return (
     <html lang="zh-Hant" className={`${outfit.variable} ${notoSansTC.variable}`}>
       <head>
-        <link rel="icon" href="/meemo-pfp.png?v=2" sizes="any" />
-        <link rel="apple-touch-icon" href="/meemo-pfp.png?v=2" />
+        <link rel="icon" type="image/png" href="/meemo-pfp.png?v=3" sizes="any" />
+        <link rel="apple-touch-icon" href="/meemo-pfp.png?v=3" />
+        <link rel="shortcut icon" href="/favicon.ico?v=3" />
         <link rel="preload" href="/meemo world graphic.glb" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/meemobgmusic.mp3" as="audio" />
       </head>
       <body>
         <NavBar />
