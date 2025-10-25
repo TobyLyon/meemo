@@ -244,7 +244,9 @@ export default function UI() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={styles.primaryButton}
-                    onClick={() => router.push("/community")}
+                    onClick={() => {
+                      window.open("https://t.me/MeemoPortal", "_blank", "noopener,noreferrer");
+                    }}
                   >
                     加入社群 · Join Community
                   </motion.button>
@@ -274,6 +276,7 @@ export default function UI() {
           <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
             <a href="https://x.com/MeemosMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://t.me/MeemoPortal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
       </motion.footer>

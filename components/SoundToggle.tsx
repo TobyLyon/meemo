@@ -1,10 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SoundToggle() {
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audio = new Audio("/meemobgmusic.mp3");
+    audio.loop = true;
+    audio.preload = "auto";
+    audio.volume = 0.25;
+    audioRef.current = audio;
+    return () => {
+      try {
+        audio.pause();
+      } catch {}
+      audioRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (soundEnabled) {
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
+  }, [soundEnabled]);
 
   return (
     <motion.button
@@ -13,7 +38,18 @@ export default function SoundToggle() {
       transition={{ delay: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      onClick={() => setSoundEnabled(!soundEnabled)}
+      onClick={() => {
+        const next = !soundEnabled;
+        setSoundEnabled(next);
+        const audio = audioRef.current;
+        if (audio) {
+          if (next) {
+            audio.play().catch(() => {});
+          } else {
+            audio.pause();
+          }
+        }
+      }}
       style={{
         position: "fixed",
         bottom: "120px",
