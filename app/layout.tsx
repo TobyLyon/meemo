@@ -55,7 +55,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/meemo-pfp.png?v=3" />
         <link rel="shortcut icon" href="/favicon.ico?v=3" />
         <link rel="preload" href="/meemo world graphic.glb" as="fetch" crossOrigin="anonymous" />
-        <link rel="preload" href="/meemobgmusic.mp3" as="audio" />
+        <link rel="preload" href="/meemobgmusic.mp3" as="audio" type="audio/mpeg" />
       </head>
       <body>
         <NavBar />

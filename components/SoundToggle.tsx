@@ -135,14 +135,9 @@ export default function SoundToggle() {
 
   return (
     <>
-      <audio
-        ref={audioRef}
-        src="/meemobgmusic.mp3"
-        loop
-        preload="auto"
-        playsInline
-        style={{ display: "none" }}
-      />
+      <audio ref={audioRef} loop preload="auto" playsInline style={{ display: "none" }}>
+        <source src="/meemobgmusic.mp3" type="audio/mpeg" />
+      </audio>
       <motion.button
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
