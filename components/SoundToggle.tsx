@@ -3,19 +3,30 @@
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+const DEFAULT_VOLUME = 0.25;
+const FADE_DURATION_MS = 1800;
+
 export default function SoundToggle() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const hasAutoFadedRef = useRef(false);
-  const DEFAULT_VOLUME = 0.25;
-  const FADE_DURATION_MS = 1800;
 
   useEffect(() => {
+    console.log('[SoundToggle] Initializing audio');
     const audio = new Audio("/meemobgmusic.mp3");
     audio.loop = true;
     audio.preload = "auto";
     audio.volume = 0; // start silent; fade in on first interaction
     audioRef.current = audio;
+    
+    // Log when audio is loaded
+    audio.addEventListener('canplaythrough', () => {
+      console.log('[SoundToggle] Audio loaded and ready to play');
+    });
+    audio.addEventListener('error', (e) => {
+      console.error('[SoundToggle] Audio load error:', e);
+    });
+    
     return () => {
       try {
         audio.pause();
@@ -44,23 +55,30 @@ export default function SoundToggle() {
   // Start playback and fade in once (on first interaction)
   const startPlaybackWithFadeIn = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio) {
+      console.log('[SoundToggle] No audio ref in startPlaybackWithFadeIn');
+      return;
+    }
+    console.log('[SoundToggle] Starting playback with fade-in');
     audio.play().then(() => {
+      console.log('[SoundToggle] Audio play succeeded, fading to', DEFAULT_VOLUME);
       fadeToVolume(DEFAULT_VOLUME, FADE_DURATION_MS);
       setSoundEnabled(true);
-    }).catch(() => {
-      // Autoplay may still fail depending on gesture; do nothing
+    }).catch((e) => {
+      console.log('[SoundToggle] Audio play failed:', e);
     });
   }, [fadeToVolume]);
 
   useEffect(() => {
-    function onFirstInteract() {
+    function onFirstInteract(e: Event) {
       if (hasAutoFadedRef.current) return;
+      console.log('[SoundToggle] First interaction detected:', e.type);
       hasAutoFadedRef.current = true;
       startPlaybackWithFadeIn();
       remove();
     }
     function add() {
+      console.log('[SoundToggle] Adding event listeners for auto-play');
       window.addEventListener("pointerdown", onFirstInteract, { passive: true });
       window.addEventListener("touchstart", onFirstInteract, { passive: true });
       window.addEventListener("keydown", onFirstInteract);
@@ -68,6 +86,7 @@ export default function SoundToggle() {
       window.addEventListener("scroll", onFirstInteract, { passive: true });
     }
     function remove() {
+      console.log('[SoundToggle] Removing event listeners');
       window.removeEventListener("pointerdown", onFirstInteract as any);
       window.removeEventListener("touchstart", onFirstInteract as any);
       window.removeEventListener("keydown", onFirstInteract as any);
