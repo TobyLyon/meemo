@@ -6,12 +6,15 @@ import { useEffect, useRef, useState } from "react";
 export default function SoundToggle() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hasAutoFadedRef = useRef(false);
+  const DEFAULT_VOLUME = 0.25;
+  const FADE_DURATION_MS = 1800;
 
   useEffect(() => {
     const audio = new Audio("/meemobgmusic.mp3");
     audio.loop = true;
     audio.preload = "auto";
-    audio.volume = 0.25;
+    audio.volume = 0; // start silent; fade in on first interaction
     audioRef.current = audio;
     return () => {
       try {
@@ -21,6 +24,59 @@ export default function SoundToggle() {
     };
   }, []);
 
+  // Helper: fade volume up smoothly
+  function fadeToVolume(targetVolume: number, durationMs: number) {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const start = performance.now();
+    const from = audio.volume;
+    const to = Math.max(0, Math.min(1, targetVolume));
+    function step(now: number) {
+      const t = Math.min(1, (now - start) / Math.max(1, durationMs));
+      const eased = t * t * (3 - 2 * t); // smoothstep
+      audio.volume = from + (to - from) * eased;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Start playback and fade in once (on first interaction)
+  function startPlaybackWithFadeIn() {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.play().then(() => {
+      fadeToVolume(DEFAULT_VOLUME, FADE_DURATION_MS);
+      setSoundEnabled(true);
+    }).catch(() => {
+      // Autoplay may still fail depending on gesture; do nothing
+    });
+  }
+
+  useEffect(() => {
+    function onFirstInteract() {
+      if (hasAutoFadedRef.current) return;
+      hasAutoFadedRef.current = true;
+      startPlaybackWithFadeIn();
+      remove();
+    }
+    function add() {
+      window.addEventListener("pointerdown", onFirstInteract, { passive: true });
+      window.addEventListener("touchstart", onFirstInteract, { passive: true });
+      window.addEventListener("keydown", onFirstInteract);
+      window.addEventListener("wheel", onFirstInteract, { passive: true });
+      window.addEventListener("scroll", onFirstInteract, { passive: true });
+    }
+    function remove() {
+      window.removeEventListener("pointerdown", onFirstInteract as any);
+      window.removeEventListener("touchstart", onFirstInteract as any);
+      window.removeEventListener("keydown", onFirstInteract as any);
+      window.removeEventListener("wheel", onFirstInteract as any);
+      window.removeEventListener("scroll", onFirstInteract as any);
+    }
+    add();
+    return remove;
+  }, []);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -28,6 +84,7 @@ export default function SoundToggle() {
       audio.play().catch(() => {});
     } else {
       audio.pause();
+      audio.volume = 0; // reset for next fade-in
     }
   }, [soundEnabled]);
 
@@ -44,9 +101,13 @@ export default function SoundToggle() {
         const audio = audioRef.current;
         if (audio) {
           if (next) {
-            audio.play().catch(() => {});
+            // If enabling via toggle, fade in as well
+            audio.play().then(() => {
+              fadeToVolume(DEFAULT_VOLUME, FADE_DURATION_MS);
+            }).catch(() => {});
           } else {
             audio.pause();
+            audio.volume = 0;
           }
         }
       }}
