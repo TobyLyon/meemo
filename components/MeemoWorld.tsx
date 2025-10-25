@@ -1,10 +1,19 @@
 "use client";
 
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { useGLTF, useAnimations, Box } from "@react-three/drei";
+import { useEffect, useRef, Suspense } from "react";
 import { Group } from "three";
 
-export default function MeemoWorld() {
+// Placeholder shown while GLB is loading
+function LoadingPlaceholder() {
+  return (
+    <Box args={[8, 6, 8]} position={[0, 3, 0]}>
+      <meshStandardMaterial color="#4ecdc4" opacity={0.2} transparent wireframe />
+    </Box>
+  );
+}
+
+function MeemoModel() {
   const group = useRef<Group>(null);
   
   // Load the GLB model
@@ -42,6 +51,14 @@ export default function MeemoWorld() {
     <group ref={group}>
       <primitive object={scene} scale={1} position={[0, 0, 0]} />
     </group>
+  );
+}
+
+export default function MeemoWorld() {
+  return (
+    <Suspense fallback={<LoadingPlaceholder />}>
+      <MeemoModel />
+    </Suspense>
   );
 }
 

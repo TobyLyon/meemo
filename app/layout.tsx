@@ -50,6 +50,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/meemo-pfp.png?v=2" sizes="any" />
         <link rel="apple-touch-icon" href="/meemo-pfp.png?v=2" />
+        <link rel="preload" href="/meemo world graphic.glb" as="fetch" crossOrigin="anonymous" />
       </head>
       <body>
         <NavBar />
