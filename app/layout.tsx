@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   title: "Meemo's Magic Land",
   description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
   icons: {
-    icon: "/meemo-pfp.png?v=1",
-    apple: "/meemo-pfp.png?v=1",
-    shortcut: "/meemo-pfp.png?v=1",
+    icon: "/meemo-pfp.png?v=2",
+    apple: "/meemo-pfp.png?v=2",
+    shortcut: "/meemo-pfp.png?v=2",
   },
   openGraph: {
     title: "Meemo's Magic Land",
@@ -47,6 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-Hant" className={`${outfit.variable} ${notoSansTC.variable}`}>
+      <head>
+        <link rel="icon" href="/meemo-pfp.png?v=2" sizes="any" />
+        <link rel="apple-touch-icon" href="/meemo-pfp.png?v=2" />
+      </head>
       <body>
         <NavBar />
         {children}
