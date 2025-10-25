@@ -12,26 +12,36 @@ export default function SoundToggle() {
   const hasAutoFadedRef = useRef(false);
 
   useEffect(() => {
-    console.log('[SoundToggle] Initializing audio');
-    const audio = new Audio("/meemobgmusic.mp3");
+    const audio = audioRef.current;
+    if (!audio) return;
+    console.log('[SoundToggle] Initializing audio element');
+    audio.volume = 0; // start silent; fade in on first interaction
+    audio.muted = true; // prime autoplay policies
     audio.loop = true;
     audio.preload = "auto";
-    audio.volume = 0; // start silent; fade in on first interaction
-    audioRef.current = audio;
-    
-    // Log when audio is loaded
-    audio.addEventListener('canplaythrough', () => {
+
+    const onCanPlay = () => {
       console.log('[SoundToggle] Audio loaded and ready to play');
-    });
-    audio.addEventListener('error', (e) => {
+    };
+    const onError = (e: Event) => {
       console.error('[SoundToggle] Audio load error:', e);
+    };
+    audio.addEventListener('canplaythrough', onCanPlay);
+    audio.addEventListener('error', onError);
+
+    // Prime playback muted (allowed on most browsers)
+    audio.play().then(() => {
+      console.log('[SoundToggle] Primed muted playback');
+      audio.pause();
+      audio.currentTime = 0;
+    }).catch((e) => {
+      console.log('[SoundToggle] Priming muted play failed:', e);
     });
-    
+
     return () => {
-      try {
-        audio.pause();
-      } catch {}
-      audioRef.current = null;
+      audio.removeEventListener('canplaythrough', onCanPlay);
+      audio.removeEventListener('error', onError);
+      try { audio.pause(); } catch {}
     };
   }, []);
 
@@ -60,13 +70,28 @@ export default function SoundToggle() {
       return;
     }
     console.log('[SoundToggle] Starting playback with fade-in');
-    audio.play().then(() => {
-      console.log('[SoundToggle] Audio play succeeded, fading to', DEFAULT_VOLUME);
-      fadeToVolume(DEFAULT_VOLUME, FADE_DURATION_MS);
-      setSoundEnabled(true);
-    }).catch((e) => {
-      console.log('[SoundToggle] Audio play failed:', e);
-    });
+    const doPlay = () => {
+      audio.muted = false;
+      audio.currentTime = Math.max(0, audio.currentTime);
+      audio.play().then(() => {
+        console.log('[SoundToggle] Audio play succeeded, fading to', DEFAULT_VOLUME);
+        fadeToVolume(DEFAULT_VOLUME, FADE_DURATION_MS);
+        setSoundEnabled(true);
+      }).catch((e) => {
+        console.log('[SoundToggle] Audio play failed after ready:', e);
+      });
+    };
+    if (audio.readyState < 2) {
+      console.log('[SoundToggle] Audio not ready, waiting canplaythrough...');
+      const once = () => {
+        audio.removeEventListener('canplaythrough', once);
+        doPlay();
+      };
+      audio.addEventListener('canplaythrough', once);
+      try { audio.load(); } catch {}
+    } else {
+      doPlay();
+    }
   }, [fadeToVolume]);
 
   useEffect(() => {
@@ -109,7 +134,16 @@ export default function SoundToggle() {
   }, [soundEnabled]);
 
   return (
-    <motion.button
+    <>
+      <audio
+        ref={audioRef}
+        src="/meemobgmusic.mp3"
+        loop
+        preload="auto"
+        playsInline
+        style={{ display: "none" }}
+      />
+      <motion.button
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1 }}
@@ -119,16 +153,14 @@ export default function SoundToggle() {
         const next = !soundEnabled;
         setSoundEnabled(next);
         const audio = audioRef.current;
-        if (audio) {
-          if (next) {
-            // If enabling via toggle, fade in as well
-            audio.play().then(() => {
-              fadeToVolume(DEFAULT_VOLUME, FADE_DURATION_MS);
-            }).catch(() => {});
-          } else {
-            audio.pause();
-            audio.volume = 0;
-          }
+        if (!audio) return;
+        if (next) {
+          // Enable: ensure unmuted and fade in
+          startPlaybackWithFadeIn();
+        } else {
+          // Disable: pause and reset volume
+          try { audio.pause(); } catch {}
+          audio.volume = 0;
         }
       }}
       style={{
@@ -153,7 +185,7 @@ export default function SoundToggle() {
         transition: "all 0.3s ease",
       }}
       title={soundEnabled ? "Mute" : "Unmute"}
-    >
+      >
       {soundEnabled ? (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: "24px", height: "24px" }}>
           <path d="M11 5L6 9H2v6h4l5 4V5z" />
@@ -166,7 +198,8 @@ export default function SoundToggle() {
           <line x1="17" y1="9" x2="23" y2="15" />
         </svg>
       )}
-    </motion.button>
+      </motion.button>
+    </>
   );
 }
 
