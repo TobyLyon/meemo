@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   title: "Meemo's Magic Land",
   description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
   icons: {
-    icon: "/meemo-pfp.png",
-    apple: "/meemo-pfp.png",
-    shortcut: "/meemo-pfp.png",
+    icon: "/meemo-pfp.png?v=1",
+    apple: "/meemo-pfp.png?v=1",
+    shortcut: "/meemo-pfp.png?v=1",
   },
   openGraph: {
     title: "Meemo's Magic Land",
