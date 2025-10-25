@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function SoundToggle() {
   const [soundEnabled, setSoundEnabled] = useState(false);
@@ -25,23 +25,24 @@ export default function SoundToggle() {
   }, []);
 
   // Helper: fade volume up smoothly
-  function fadeToVolume(targetVolume: number, durationMs: number) {
+  const fadeToVolume = useCallback((targetVolume: number, durationMs: number) => {
     const audio = audioRef.current;
     if (!audio) return;
     const start = performance.now();
     const from = audio.volume;
     const to = Math.max(0, Math.min(1, targetVolume));
     function step(now: number) {
+      if (!audioRef.current) return; // null-safety check
       const t = Math.min(1, (now - start) / Math.max(1, durationMs));
       const eased = t * t * (3 - 2 * t); // smoothstep
-      audio.volume = from + (to - from) * eased;
+      audioRef.current.volume = from + (to - from) * eased;
       if (t < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
-  }
+  }, []);
 
   // Start playback and fade in once (on first interaction)
-  function startPlaybackWithFadeIn() {
+  const startPlaybackWithFadeIn = useCallback(() => {
     const audio = audioRef.current;
     if (!audio) return;
     audio.play().then(() => {
@@ -50,7 +51,7 @@ export default function SoundToggle() {
     }).catch(() => {
       // Autoplay may still fail depending on gesture; do nothing
     });
-  }
+  }, [fadeToVolume]);
 
   useEffect(() => {
     function onFirstInteract() {
