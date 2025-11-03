@@ -84,12 +84,12 @@ export default function UI() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
-                  navigator.clipboard.writeText("0x67181a01bc946eea796c8ff801af1b8df82d4444");
+                  navigator.clipboard.writeText("coming soon");
                 }}
                 className={styles.tokenButton}
               >
                 <span className={styles.tokenLabel}>代幣地址 · Token Address</span>
-                <span className={styles.tokenAddress}>0x6718...d4444</span>
+                <span className={styles.tokenAddress}>coming soon</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                   <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
@@ -227,13 +227,13 @@ export default function UI() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
-                    navigator.clipboard.writeText("0x67181a01bc946eea796c8ff801af1b8df82d4444");
+                    navigator.clipboard.writeText("coming soon");
                   }}
                   className={styles.tokenButton}
                   style={{ marginBottom: "2rem" }}
                 >
                   <span className={styles.tokenLabel}>代幣地址 · Token Address</span>
-                  <span className={styles.tokenAddress}>0x6718...d4444</span>
+                  <span className={styles.tokenAddress}>coming soon</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                     <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
