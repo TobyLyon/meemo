@@ -78,7 +78,7 @@ export default function UI() {
               </h1>
               <p className={styles.subtitle}>歡迎來到魔法國度 · Welcome</p>
               <p className={styles.description}>
-                修補 Meemo · Restore Meemo
+                縫補星光 · Weave Meemo’s Magic
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
