@@ -9,11 +9,15 @@ export default function PostProcessing() {
   const { gl, size } = useThree();
   const [ready, setReady] = useState(false);
 
+  // Feature flag: set to true to re-enable post-processing once library issue is resolved
+  const ENABLE_POSTFX = typeof process !== "undefined" && process.env.NEXT_PUBLIC_ENABLE_POSTFX === "true";
+
   useEffect(() => {
     const raf = requestAnimationFrame(() => setReady(true));
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  if (!ENABLE_POSTFX) return null;
   if (!ready || !gl || !size?.width || !size?.height) return null;
 
   return (
@@ -28,7 +32,10 @@ export default function PostProcessing() {
         eskil={false}
         offset={0.25}
         darkness={0.6}
-        blendFunction={BlendFunction.NORMAL}
+        blendFunction={
+          // @ts-ignore postprocessing enum type
+          (BlendFunction as any).NORMAL ?? BlendFunction.NORMAL
+        }
       />
     </EffectComposer>
   );
