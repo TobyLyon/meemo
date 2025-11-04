@@ -260,10 +260,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 2rem;
+  align-items: start;
 }
 
 .feature {
   text-align: center;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  row-gap: 0.5rem;
 }
 
 .featureIcon {
@@ -271,11 +276,17 @@
   height: 3rem;
   margin: 0 auto 1rem;
   color: #4ecdc4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(78, 205, 196, 0.08);
+  border: 1px solid rgba(78, 205, 196, 0.2);
 }
 
 .featureIcon svg {
-  width: 100%;
-  height: 100%;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .feature h3 {
