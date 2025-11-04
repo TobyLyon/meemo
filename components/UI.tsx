@@ -76,9 +76,9 @@ export default function UI() {
                 <span className={styles.titleMain}>Meemo&apos;s</span>
                 <span className={styles.titleSub}>Magic Land</span>
               </h1>
-              <p className={styles.subtitle}>歡迎來到魔法國度 · Welcome</p>
+              <p className={styles.subtitle}>Welcome</p>
               <p className={styles.description}>
-                縫補星光 · Weave Meemo’s Magic
+                Weave Meemo’s Magic
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -88,7 +88,7 @@ export default function UI() {
                 }}
                 className={styles.tokenButton}
               >
-                <span className={styles.tokenLabel}>代幣地址 · Token Address</span>
+                <span className={styles.tokenLabel}>Token Address</span>
                 <span className={styles.tokenAddress}>coming soon</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
@@ -96,7 +96,7 @@ export default function UI() {
                 </svg>
               </motion.button>
               <div className={styles.scrollHint}>
-                <span>向下捲動 · Scroll</span>
+                <span>Scroll</span>
                 <motion.div
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
@@ -134,7 +134,7 @@ export default function UI() {
               />
               <h2 className={styles.sectionTitle}>
                 <span className={styles.kanji}>世界</span>
-                <span>探索世界 · Explore the World</span>
+                <span>Explore the World</span>
               </h2>
               <div className={styles.featureGrid}>
                 <motion.div
@@ -148,8 +148,8 @@ export default function UI() {
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                   </div>
-                  <h3>修補之旅 · Repair Journey</h3>
-                  <p>收集、縫補 · Gather & mend</p>
+                  <h3>Repair Journey</h3>
+                  <p>Gather & mend</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -164,8 +164,8 @@ export default function UI() {
                       <path d="M2 12h20M12 2v20" opacity="0.5" />
                     </svg>
                   </div>
-                  <h3>心之火花 · Heart</h3>
-                  <p>善意發光 · Kindness fuels</p>
+                  <h3>Heart</h3>
+                  <p>Kindness fuels</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -180,7 +180,7 @@ export default function UI() {
                       <circle cx="12" cy="12" r="3" fill="currentColor" />
                     </svg>
                   </div>
-                  <h3>社群代幣 · Token</h3>
+                  <h3>Token</h3>
                   <p>memecoin · art</p>
                 </motion.div>
               </div>
@@ -211,7 +211,7 @@ export default function UI() {
               />
               <h2 className={styles.sectionTitle}>
                 <span className={styles.kanji}>旅程</span>
-                <span>開始旅程 · Begin Your Journey</span>
+                <span>Begin Your Journey</span>
               </h2>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -242,7 +242,7 @@ export default function UI() {
                   className={styles.tokenButton}
                   style={{ marginBottom: "2rem" }}
                 >
-                  <span className={styles.tokenLabel}>代幣地址 · Token Address</span>
+                  <span className={styles.tokenLabel}>Token Address</span>
                   <span className={styles.tokenAddress}>coming soon</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
@@ -258,7 +258,7 @@ export default function UI() {
                       window.open("https://t.me/MeemoPortal", "_blank", "noopener,noreferrer");
                     }}
                   >
-                    加入社群 · Join
+                    Join
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -266,7 +266,7 @@ export default function UI() {
                     className={styles.secondaryButton}
                     onClick={() => router.push("/hiring")}
                   >
-                    招募 · Hiring
+                    Hiring
                   </motion.button>
                 </div>
               </motion.div>

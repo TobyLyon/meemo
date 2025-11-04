@@ -47,7 +47,7 @@ export default function ScrollHint() {
           }}
         >
           <div style={{ fontSize: "0.9rem", letterSpacing: "0.2em", textAlign: "center" }}>
-            向下捲動探索 · SCROLL TO EXPLORE
+            SCROLL TO EXPLORE
           </div>
           <motion.div
             animate={{ y: [0, 10, 0] }}

@@ -18,28 +18,15 @@ export default function NavBar() {
           <div className={styles.logoAccent} />
         </Link>
         <a
-          href="https://www.binance.com/"
+          href="https://solana.com/"
           className={styles.navLink}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Binance"
-          title="Binance"
-          style={{ display: "inline-flex", alignItems: "center" }}
+          aria-label="Solana"
+          title="Solana"
+          style={{ display: "inline-flex", alignItems: "center", fontWeight: 600 }}
         >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="#F3BA2F"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <polygon points="12,4 14,6 12,8 10,6" />
-            <polygon points="6,10 8,12 6,14 4,12" />
-            <polygon points="18,10 20,12 18,14 16,12" />
-            <polygon points="12,16 14,18 12,20 10,18" />
-            <polygon points="12,10 14,12 12,14 10,12" />
-          </svg>
+          Solana
         </a>
       </div>
       <nav className={styles.nav}>
@@ -54,7 +41,7 @@ export default function NavBar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          故事 story
+          Story
         </a>
         <a
           href="#world"
@@ -66,7 +53,7 @@ export default function NavBar() {
             window.scrollTo({ top: height * 0.5, behavior: "smooth" });
           }}
         >
-          世界 world
+          World
         </a>
         <a
           href="#journey"
@@ -78,7 +65,7 @@ export default function NavBar() {
             window.scrollTo({ top: height * 0.98, behavior: "smooth" });
           }}
         >
-          旅程 journey
+          Journey
         </a>
       </nav>
     </motion.header>

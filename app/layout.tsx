@@ -21,7 +21,7 @@ const notoSansTC = Noto_Sans_TC({
 
 export const metadata: Metadata = {
   title: "Meemo's Magic Land",
-  description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
+  description: "Where art meets Solana. Join the Meemo community - a unique memecoin and art project on Solana.",
   icons: {
     icon: [
       { url: "/meemo-pfp.png?v=3", type: "image/png" },
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Meemo's Magic Land",
-    description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
+    description: "Where art meets Solana. Join the Meemo community - a unique memecoin and art project on Solana.",
     images: ["/meemos%20banner.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Meemo's Magic Land",
-    description: "Where art meets BSC. Join the Meemo community - a unique memecoin and art project on Binance Smart Chain.",
+    description: "Where art meets Solana. Join the Meemo community - a unique memecoin and art project on Solana.",
     images: ["/meemos%20banner.png"],
   },
 };
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-Hant" className={`${outfit.variable} ${notoSansTC.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${notoSansTC.variable}`}>
       <head>
         <link rel="icon" type="image/png" href="/meemo-pfp.png?v=3" sizes="any" />
         <link rel="apple-touch-icon" href="/meemo-pfp.png?v=3" />
