@@ -1,9 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useThree } from "@react-three/fiber";
 import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 
 export default function PostProcessing() {
+  const { gl, size } = useThree();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  if (!ready || !gl || !size?.width || !size?.height) return null;
+
   return (
     <EffectComposer multisampling={0}>
       <Bloom
