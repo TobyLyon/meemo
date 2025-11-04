@@ -133,7 +133,6 @@ export default function UI() {
                 style={{ background: "linear-gradient(135deg, #4ecdc4, #44a3d5)" }}
               />
               <h2 className={styles.sectionTitle}>
-                <span className={styles.kanji}>世界</span>
                 <span>Explore the World</span>
               </h2>
               <div className={styles.featureGrid}>
@@ -210,7 +209,6 @@ export default function UI() {
                 style={{ background: "linear-gradient(135deg, #ff6b6b, #ee5a6f)" }}
               />
               <h2 className={styles.sectionTitle}>
-                <span className={styles.kanji}>旅程</span>
                 <span>Begin Your Journey</span>
               </h2>
               <motion.div
@@ -219,19 +217,8 @@ export default function UI() {
                 transition={{ delay: 0.4 }}
                 className={styles.comingSoon}
               >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    window.open("https://x.com/MeemosMagic", "_blank", "noopener,noreferrer");
-                  }}
-                  className={styles.comingSoonBadge}
-                  style={{ cursor: "pointer", border: "none", background: "linear-gradient(135deg, #ff6b6b, #ee5a6f)" }}
-                >
-                  即將啟航 · Setting Sail
-                </motion.button>
                 <p className={`${styles.releaseText} ${styles.releaseTextCompact}`}>
-                  一起修補 Meemo — 即將啟程 · Help mend Meemo — coming soon.
+                  Help mend Meemo — coming soon.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
