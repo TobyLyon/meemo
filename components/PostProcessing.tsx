@@ -10,7 +10,6 @@ export default function PostProcessing() {
         intensity={0.9}
         luminanceThreshold={0.2}
         luminanceSmoothing={0.2}
-        mipmapBlur
         radius={0.9}
       />
       <Vignette

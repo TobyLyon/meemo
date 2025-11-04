@@ -58,9 +58,7 @@ export default function Scene() {
         <CinematicCamera />
         
         {/* Post Processing Effects */}
-        <Suspense fallback={null}>
-          <PostProcessing />
-        </Suspense>
+        <PostProcessing />
       </Canvas>
     </div>
   );
