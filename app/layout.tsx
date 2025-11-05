@@ -21,7 +21,7 @@ const notoSansTC = Noto_Sans_TC({
 
 export const metadata: Metadata = {
   title: "Meemo's Magic Land",
-  description: "Where art meets Solana. Join the Meemo community - a unique memecoin and art project on Solana.",
+  description: "When the market went dark, only one light bled through the pain. MeeMo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
   icons: {
     icon: [
       { url: "/meemo-pfp.png?v=3", type: "image/png" },
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Meemo's Magic Land",
-    description: "Where art meets Solana. Join the Meemo community - a unique memecoin and art project on Solana.",
-    images: ["/meemos%20banner.png"],
+    description: "When the market went dark, only one light bled through the pain. MeeMo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+    images: ["/meemos-banner.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Meemo's Magic Land",
-    description: "Where art meets Solana. Join the Meemo community - a unique memecoin and art project on Solana.",
-    images: ["/meemos%20banner.png"],
+    description: "When the market went dark, only one light bled through the pain. MeeMo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+    images: ["/meemos-banner.png"],
   },
 };
 

@@ -78,7 +78,7 @@ export default function UI() {
               </h1>
               <p className={styles.subtitle}>Welcome</p>
               <p className={styles.description}>
-                Weave Meemo’s Magic
+                When the market went dark, only one light bled through the pain. MeeMo&apos;s Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -242,18 +242,10 @@ export default function UI() {
                     whileTap={{ scale: 0.95 }}
                     className={styles.primaryButton}
                     onClick={() => {
-                      window.open("https://t.me/MeemoPortal", "_blank", "noopener,noreferrer");
+                    window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
                     }}
                   >
                     Join
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={styles.secondaryButton}
-                    onClick={() => router.push("/hiring")}
-                  >
-                    Hiring
                   </motion.button>
                 </div>
               </motion.div>
@@ -273,7 +265,7 @@ export default function UI() {
           <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
             <a href="https://x.com/MeemosMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="https://t.me/MeemoPortal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://t.me/meemosportal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
       </motion.footer>
