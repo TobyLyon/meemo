@@ -9,8 +9,10 @@ export default function PostProcessing() {
   const { gl, size } = useThree();
   const [ready, setReady] = useState(false);
 
-  // Feature flag: set to true to re-enable post-processing once library issue is resolved
-  const ENABLE_POSTFX = typeof process !== "undefined" && process.env.NEXT_PUBLIC_ENABLE_POSTFX === "true";
+  // Enable glow by default; set NEXT_PUBLIC_ENABLE_POSTFX="false" to disable if needed
+  const ENABLE_POSTFX =
+    (typeof process !== "undefined" && process.env.NEXT_PUBLIC_ENABLE_POSTFX !== "false") ||
+    typeof process === "undefined";
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => setReady(true));
@@ -23,10 +25,10 @@ export default function PostProcessing() {
   return (
     <EffectComposer multisampling={0}>
       <Bloom
-        intensity={0.9}
-        luminanceThreshold={0.2}
-        luminanceSmoothing={0.2}
-        radius={0.9}
+        intensity={1.1}
+        luminanceThreshold={0.12}
+        luminanceSmoothing={0.22}
+        radius={1.0}
       />
       <Vignette
         eskil={false}
