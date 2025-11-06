@@ -80,7 +80,7 @@ export default function UI() {
               </h1>
               <p className={styles.subtitle}>Welcome</p>
               <p className={styles.description}>
-                When the market went dark, only one light bled through the pain. MeeMo&apos;s Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.
+                Meemo is an art project created by Asian-American artist, Jeremy Wang and released as a memecoin on the Binance Smart Chain
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
