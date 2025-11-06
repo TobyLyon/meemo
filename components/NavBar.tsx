@@ -18,15 +18,15 @@ export default function NavBar() {
           <div className={styles.logoAccent} />
         </Link>
         <a
-          href="https://solana.com/"
+          href="https://www.binance.com/"
           className={styles.navLink}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Solana"
-          title="Solana"
+          aria-label="Binance"
+          title="Binance"
           style={{ display: "inline-flex", alignItems: "center", fontWeight: 600 }}
         >
-          Solana
+          Binance
         </a>
       </div>
       <nav className={styles.nav}>
