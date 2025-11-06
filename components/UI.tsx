@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import styles from "./UI.module.css";
+import { TOKEN_ADDRESS } from "@/config/constants";
 
 export default function UI() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const smoothed = useRef(0);
   const router = useRouter();
+  const tokenAddress = TOKEN_ADDRESS;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,12 +86,12 @@ export default function UI() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
-                  navigator.clipboard.writeText("coming soon");
+                  navigator.clipboard.writeText(tokenAddress);
                 }}
                 className={styles.tokenButton}
               >
                 <span className={styles.tokenLabel}>Token Address</span>
-                <span className={styles.tokenAddress}>coming soon</span>
+                <span className={styles.tokenAddress}>{tokenAddress}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                   <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
@@ -223,14 +225,14 @@ export default function UI() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    navigator.clipboard.writeText("coming soon");
-                  }}
+                onClick={() => {
+                  navigator.clipboard.writeText(tokenAddress);
+                }}
                   className={styles.tokenButton}
                   style={{ marginBottom: "2rem" }}
                 >
                   <span className={styles.tokenLabel}>Token Address</span>
-                  <span className={styles.tokenAddress}>coming soon</span>
+                <span className={styles.tokenAddress}>{tokenAddress}</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                     <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
