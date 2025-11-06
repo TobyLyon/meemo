@@ -147,8 +147,8 @@ export default function UI() {
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                   </div>
-                  <h3>Repair Journey</h3>
-                  <p>Gather & mend</p>
+                  <h3>Repair Quest</h3>
+                  <p>Gather · mend · glow</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ export default function UI() {
                     </svg>
                   </div>
                   <h3>Heart</h3>
-                  <p>Kindness fuels</p>
+                  <p>Kindness powers all</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -180,7 +180,7 @@ export default function UI() {
                     </svg>
                   </div>
                   <h3>Token</h3>
-                  <p>memecoin · art</p>
+                  <p>memecoin × art</p>
                 </motion.div>
               </div>
             </div>
