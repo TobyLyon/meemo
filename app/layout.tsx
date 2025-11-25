@@ -20,26 +20,26 @@ const notoSansTC = Noto_Sans_TC({
 });
 
 export const metadata: Metadata = {
-  title: "Meemo's Magic Land",
-  description: "When the market went dark, only one light bled through the pain. MeeMo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+  title: "Tumi's World",
+  description: "When the market went dark, only one light bled through the pain. Tumi's World is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
   icons: {
     icon: [
-      { url: "/meemo-pfp.png?v=3", type: "image/png" },
+      { url: "/tumi-pfp.png?v=3", type: "image/png" },
       { url: "/favicon.ico?v=3" },
     ],
-    apple: "/meemo-pfp.png?v=3",
-    shortcut: "/meemo-pfp.png?v=3",
+    apple: "/tumi-pfp.png?v=3",
+    shortcut: "/tumi-pfp.png?v=3",
   },
   openGraph: {
-    title: "Meemo's Magic Land",
-    description: "When the market went dark, only one light bled through the pain. MeeMo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
-    images: ["/meemos-banner.png"],
+    title: "Tumi's World",
+    description: "When the market went dark, only one light bled through the pain. Tumi's World is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+    images: ["/tumis-banner.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Meemo's Magic Land",
-    description: "When the market went dark, only one light bled through the pain. MeeMo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
-    images: ["/meemos-banner.png"],
+    title: "Tumi's World",
+    description: "When the market went dark, only one light bled through the pain. Tumi's World is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+    images: ["/tumis-banner.png"],
   },
 };
 
@@ -51,11 +51,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${notoSansTC.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/meemo-pfp.png?v=3" sizes="any" />
-        <link rel="apple-touch-icon" href="/meemo-pfp.png?v=3" />
+        <link rel="icon" type="image/png" href="/tumi-pfp.png?v=3" sizes="any" />
+        <link rel="apple-touch-icon" href="/tumi-pfp.png?v=3" />
         <link rel="shortcut icon" href="/favicon.ico?v=3" />
-        <link rel="preload" href="/meemo world graphic.glb" as="fetch" crossOrigin="anonymous" />
-        <link rel="preload" href="/meemobgmusic.mp3" as="audio" type="audio/mpeg" />
+        <link rel="preload" href="/tumi world graphic.glb" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/tumibgmusic.mp3" as="audio" type="audio/mpeg" />
       </head>
       <body>
         <NavBar />

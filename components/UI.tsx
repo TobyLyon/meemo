@@ -75,12 +75,12 @@ export default function UI() {
                 className={styles.cardAccent}
               />
               <h1 className={styles.title}>
-                <span className={styles.titleMain}>Meemo&apos;s</span>
-                <span className={styles.titleSub}>Magic Land</span>
+                <span className={styles.titleMain}>Tumi&apos;s</span>
+                <span className={styles.titleSub}>World</span>
               </h1>
               <p className={styles.subtitle}>Welcome</p>
               <p className={styles.description}>
-                Meemo is an art project created by Asian-American artist, Jeremy Wang and released as a memecoin on the Binance Smart Chain
+                Tumi is an art project created by Asian-American artist, Jeremy Wang and released as a memecoin on the Binance Smart Chain
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -220,7 +220,7 @@ export default function UI() {
                 className={styles.comingSoon}
               >
                 <p className={`${styles.releaseText} ${styles.releaseTextCompact}`}>
-                  Help mend Meemo — coming soon.
+                  Help mend Tumi — coming soon.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -244,7 +244,7 @@ export default function UI() {
                     whileTap={{ scale: 0.95 }}
                     className={styles.primaryButton}
                     onClick={() => {
-                    window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
+                    window.open("https://t.me/tumisportal", "_blank", "noopener,noreferrer");
                     }}
                   >
                     Join
@@ -264,10 +264,10 @@ export default function UI() {
         className={styles.footer}
       >
         <div className={styles.footerContent}>
-          <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
+          <p>© 2025 Tumi&apos;s World. All rights reserved.</p>
           <div className={styles.socialLinks}>
-            <a href="https://x.com/MeemosMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="https://t.me/meemosportal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://x.com/TumisMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://t.me/tumisportal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
       </motion.footer>

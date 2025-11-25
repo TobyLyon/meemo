@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import MeemoWorld from "./MeemoWorld";
+import TumiWorld from "./TumiWorld";
 import CinematicCamera from "./CinematicCamera";
 import PostProcessing from "./PostProcessing";
 import { Environment, Stars } from "@react-three/drei";
@@ -51,7 +51,7 @@ export default function Scene() {
         
         <Suspense fallback={null}>
           <Environment preset="night" />
-          <MeemoWorld />
+          <TumiWorld />
         </Suspense>
         
         {/* Cinematic Camera Path Controller */}

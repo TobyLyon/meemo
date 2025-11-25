@@ -1,5 +1,5 @@
 ╔═══════════════════════════════════════════════════════════════════════════╗
-║                   MEEMO'S MAGIC LAND - PROJECT COMPLETE                   ║
+║                     TUMI'S WORLD - PROJECT COMPLETE                       ║
 ║                       Next.js 3D Landing Page                             ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
 
@@ -46,7 +46,7 @@ Your elegant, scroll-interactive 3D landing page is now complete and running!
 📂 PROJECT STRUCTURE
 ═══════════════════════════════════════════════════════════════════════════
 
-meemo/
+tumi/
 ├── app/
 │   ├── layout.tsx          # Root layout with metadata
 │   ├── page.tsx            # Main page component
@@ -55,7 +55,7 @@ meemo/
 │
 ├── components/
 │   ├── Scene.tsx           # 3D Canvas setup
-│   ├── MeemoWorld.tsx      # GLB model loader with animations
+│   ├── TumiWorld.tsx       # GLB model loader with animations
 │   ├── CameraController.tsx # Scroll-based camera movement
 │   ├── PostProcessing.tsx  # Visual effects (bloom, vignette, etc.)
 │   ├── UI.tsx              # Main UI overlay with sections
@@ -69,7 +69,7 @@ meemo/
 │   └── useScrollProgress.ts # Reusable scroll hook
 │
 ├── public/
-│   └── meemo world graphic.glb # Your 3D model
+│   └── tumi world graphic.glb # Your 3D model
 │
 └── Configuration Files
     ├── package.json        # Dependencies
@@ -164,7 +164,7 @@ Ctrl + Shift + A  →  Toggle Animation Debugger
 🎪 ANIMATION SYSTEM
 ═══════════════════════════════════════════════════════════════════════════
 
-The MeemoWorld component automatically:
+The TumiWorld component automatically:
   1. Loads the GLB file from /public
   2. Extracts all animations
   3. Plays them in sync with infinite loop
@@ -209,7 +209,7 @@ Just run 'npm run build' and deploy the .next folder!
 
 ═══════════════════════════════════════════════════════════════════════════
 
-🎉 Your landing page is ready to showcase Meemo's Magic Land!
+🎉 Your landing page is ready to showcase Tumi's World!
 
 The server is running at: http://localhost:3000
 

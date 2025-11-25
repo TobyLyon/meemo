@@ -1,5 +1,5 @@
 ═══════════════════════════════════════════════════════════════════════════
-                    MEEMO'S MAGIC LAND - COMMAND REFERENCE
+                    TUMI'S WORLD - COMMAND REFERENCE
 ═══════════════════════════════════════════════════════════════════════════
 
 📋 NPM COMMANDS
@@ -173,7 +173,7 @@ Add component styles:
 ──────────────────────────────────────────────────────────────────────────
 
 Speed up animations:
-  Edit: components/MeemoWorld.tsx
+  Edit: components/TumiWorld.tsx
   Change: action.timeScale = 2  (2x speed)
 
 Pause animations:

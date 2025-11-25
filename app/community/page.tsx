@@ -31,7 +31,7 @@ export default function CommunityPage() {
       >
         <h1 style={{ margin: 0, fontSize: 36, lineHeight: 1.2 }}>Join the Community</h1>
         <p style={{ marginTop: 12, opacity: 0.8 }}>
-          Connect with fellow adventurers restoring Meemo. Follow updates and participate.
+          Connect with fellow adventurers restoring Tumi. Follow updates and participate.
         </p>
         <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
           <a

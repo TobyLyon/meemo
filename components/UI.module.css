@@ -422,20 +422,23 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .contentSection {
-    right: 2.5%;
-    left: 2.5%;
+    position: static;
+    right: auto;
+    left: auto;
     width: auto;
-    max-width: calc(100% - 5%);
+    max-width: 100%;
+    margin: 0 1rem 1rem 1rem;
+    pointer-events: auto;
   }
 
   .centerY {
     top: auto;
-    bottom: 6%;
+    bottom: auto;
     transform: none; /* avoid covering the model */
   }
 
   .aboveFooter {
-    bottom: 72px; /* slightly tighter on mobile */
+    bottom: auto; /* not needed when content is static */
   }
 
   .header {
@@ -451,10 +454,10 @@
   }
 
   .card {
-    padding: 0.6rem;
+    padding: 0.75rem;
     background: rgba(26, 26, 46, 0.55);
-    max-height: 28vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
   }
 
   .titleMain {
@@ -465,14 +468,37 @@
     font-size: 0.95rem;
   }
 
+  .tokenButton {
+    padding: 0.5rem 0.6rem;
+    align-items: start;
+    flex-wrap: wrap;
+  }
+  .tokenAddress {
+    font-size: 0.8rem;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+  }
+
   .featureGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
+  .featureIcon {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 0.6rem;
+  }
+  .featureIcon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
   .buttonGroup {
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.5rem;
+    align-items: stretch;
   }
 
   .footer {
@@ -501,12 +527,6 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-  .tokenButton {
-    padding: 0.5rem 0.6rem;
-  }
-  .tokenAddress {
-    font-size: 0.8rem;
   }
   .sectionTitle {
     margin-bottom: 0.8rem;

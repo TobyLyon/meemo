@@ -1,5 +1,5 @@
 ═══════════════════════════════════════════════════════════════════════════
-                        MEEMO'S MAGIC LAND
+                        TUMI'S WORLD
                     COMPLETE FEATURES LIST
 ═══════════════════════════════════════════════════════════════════════════
 
@@ -43,7 +43,7 @@
 ──────────────────────────────────────────────────────────────────────────
 
 ✓ Header (Fixed Top)
-  • Meemo logo with gradient text
+  • Tumi logo with gradient text
   • Animated accent line
   • Navigation links (物語 / 世界 / 旅)
   • Hover effects with underline animation
@@ -102,7 +102,7 @@
   • Console logging of animation names
 
 ✓ Loading Screen
-  • Animated Meemo logo
+  • Animated Tumi logo
   • Gradient text effect
   • Progress bar animation
   • "Loading Magic..." message

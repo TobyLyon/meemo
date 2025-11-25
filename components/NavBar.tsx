@@ -14,7 +14,7 @@ export default function NavBar() {
     >
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoText}>meemo</span>
+          <span className={styles.logoText}>tumi</span>
           <div className={styles.logoAccent} />
         </Link>
         <a

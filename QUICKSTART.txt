@@ -1,4 +1,4 @@
-🎮 MEEMO'S MAGIC LAND - QUICK START GUIDE
+🎮 TUMI'S WORLD - QUICK START GUIDE
 ==========================================
 
 Your Next.js application is ready! Here's how to run it:
@@ -19,14 +19,14 @@ Your Next.js application is ready! Here's how to run it:
    
    📁 components/          - React components
       ├── Scene.tsx        - 3D canvas setup
-      ├── MeemoWorld.tsx   - GLB model loader with animations
+      ├── TumiWorld.tsx    - GLB model loader with animations
       ├── CameraController.tsx - Scroll-based camera
       ├── UI.tsx           - Main UI overlay
       ├── UI.module.css    - UI styles
       └── LoadingScreen.tsx - Loading component
    
    📁 public/              - Static files
-      └── meemo world graphic.glb - Your 3D model
+      └── tumi world graphic.glb - Your 3D model
 
 4. HOW IT WORKS
    ✨ Scroll to move the camera around the 3D model
@@ -42,12 +42,12 @@ Your Next.js application is ready! Here's how to run it:
    - Modify UI sections: components/UI.tsx
    - Change styling: components/UI.module.css
    - Adjust lighting: components/Scene.tsx
-   - Animation controls: components/MeemoWorld.tsx
+   - Animation controls: components/TumiWorld.tsx
 
 6. TROUBLESHOOTING
    - If animations don't play, check browser console for animation names
    - For slow performance, reduce Stars count in Scene.tsx
    - If model doesn't load, verify GLB file is in public folder
 
-Made with ❤️ for Meemo's Magic Land
+Made with ❤️ for Tumi's World
 

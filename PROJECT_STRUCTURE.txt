@@ -1,8 +1,8 @@
 ═══════════════════════════════════════════════════════════════════════════
-                    MEEMO'S MAGIC LAND - PROJECT STRUCTURE
+                    TUMI'S WORLD - PROJECT STRUCTURE
 ═══════════════════════════════════════════════════════════════════════════
 
-📁 meemo/
+📁 tumi/
 │
 ├── 📁 app/                           [Next.js App Directory]
 │   ├── 📄 layout.tsx                 Root layout with metadata & fonts
@@ -14,7 +14,7 @@
 │   │
 │   ├── 🎭 3D & Scene Components
 │   │   ├── 📄 Scene.tsx              Canvas setup, lighting, environment
-│   │   ├── 📄 MeemoWorld.tsx         GLB loader & animation controller
+│   │   ├── 📄 TumiWorld.tsx          GLB loader & animation controller
 │   │   ├── 📄 CameraController.tsx   Scroll-based camera movement
 │   │   └── 📄 PostProcessing.tsx     Visual effects (bloom, vignette)
 │   │
@@ -34,7 +34,7 @@
 │   └── 📄 useScrollProgress.ts       Reusable scroll position hook
 │
 ├── 📁 public/                        [Static Assets]
-│   ├── 📄 meemo world graphic.glb    Your 3D model (copied here)
+│   ├── 📄 tumi world graphic.glb     Your 3D model (copied here)
 │   └── 📄 next.svg                   Next.js logo
 │
 ├── 📁 node_modules/                  [Dependencies - auto-generated]
@@ -66,7 +66,7 @@ app/page.tsx (Root)
     ├─→ BackgroundGradient          [Scroll-reactive background]
     │
     ├─→ Scene                        [3D Canvas Container]
-    │   ├─→ MeemoWorld              [GLB Model + Animations]
+    │   ├─→ TumiWorld               [GLB Model + Animations]
     │   │   └─→ AnimationDebugger   [Portal to document.body]
     │   ├─→ CameraController        [Scroll → Camera Position]
     │   └─→ PostProcessing          [Visual FX]
@@ -91,7 +91,7 @@ app/page.tsx (Root)
 CORE FUNCTIONALITY:
   ✅ app/page.tsx              Main entry, component orchestration
   ✅ components/Scene.tsx      3D environment setup
-  ✅ components/MeemoWorld.tsx 3D model & animation engine
+  ✅ components/TumiWorld.tsx 3D model & animation engine
   ✅ components/UI.tsx         User interface & content
 
 VISUAL ENHANCEMENT:
@@ -137,7 +137,7 @@ CONFIGURATION:
 2. Page loads
    └─→ Suspense shows LoadingScreen
        └─→ GLB file loads from /public
-           └─→ MeemoWorld extracts animations
+           └─→ TumiWorld extracts animations
                └─→ All animations play in sync
                    └─→ Loading complete, show main page
 
@@ -200,7 +200,7 @@ Site colors                         components/UI.module.css
 Camera movement                     components/CameraController.tsx
 UI content/text                     components/UI.tsx
 3D lighting                         components/Scene.tsx
-Animation speed                     components/MeemoWorld.tsx
+Animation speed                     components/TumiWorld.tsx
 Visual effects                      components/PostProcessing.tsx
 Loading screen                      components/LoadingScreen.tsx
 Scroll breakpoints                  components/UI.tsx (activeSection)
