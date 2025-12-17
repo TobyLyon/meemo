@@ -47,7 +47,7 @@ export default function NavBar() {
         {isMobile ? (
           <>
             <Link href="/story" className={styles.navLink}>
-              Story
+              Hi
             </Link>
             <Link href="/world" className={styles.navLink}>
               World
@@ -69,7 +69,7 @@ export default function NavBar() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
-              Story
+              Hi
             </a>
             <a
               href="#world"
@@ -99,7 +99,7 @@ export default function NavBar() {
         ) : (
           <>
             <Link href="/#story" className={styles.navLink}>
-              Story
+              Hi
             </Link>
             <Link href="/#world" className={styles.navLink}>
               World

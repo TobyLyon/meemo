@@ -30,7 +30,7 @@ export default function StoryPage() {
           backdropFilter: "blur(10px)",
         }}
       >
-        <h1 style={{ margin: 0, fontSize: 36, lineHeight: 1.2 }}>Story</h1>
+        <h1 style={{ margin: 0, fontSize: 36, lineHeight: 1.2 }}>Hi</h1>
         <p style={{ marginTop: 12, opacity: 0.85, lineHeight: 1.7 }}>
           Meemo’s bringin’ the magic back.
         </p>
