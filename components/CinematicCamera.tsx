@@ -145,7 +145,7 @@ export default function CinematicCamera({
     const onScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.body.scrollHeight - window.innerHeight;
-      const t = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+      const t = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
       setScrollT(t);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -154,6 +154,8 @@ export default function CinematicCamera({
   }, []);
 
   useFrame((state, delta) => {
+    if (!curve || rotatedWaypoints.length < 2) return;
+
     // Smooth the scroll value for cinematic feel
     const targetT = easeInOutCubic(scrollT);
     // Frame-rate aware damping for smoother interpolation
@@ -170,9 +172,15 @@ export default function CinematicCamera({
     const offsetStart = effectiveOffset;
     const offsetEnd = Math.min(effectiveOffset + PATH_COVERAGE, 0.999);
     const offsetT = offsetStart + (offsetEnd - offsetStart) * smoothedT.current;
-    const pos = curve.getPointAt(offsetT).clone();
+    if (!Number.isFinite(offsetT)) return;
+
+    const rawPos = curve.getPointAt(offsetT);
+    if (!rawPos) return;
+    const pos = rawPos.clone();
     const aheadT = Math.min(offsetT + 0.002, offsetEnd);
-    const ahead = curve.getPointAt(aheadT).clone();
+    const rawAhead = curve.getPointAt(aheadT);
+    if (!rawAhead) return;
+    const ahead = rawAhead.clone();
 
     // Safety: keep camera outside a minimum horizontal radius to avoid clipping through the building
     const horizLen = Math.hypot(pos.x, pos.z);

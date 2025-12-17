@@ -11,7 +11,7 @@ import SoundToggle from "@/components/SoundToggle";
 
 export default function Home() {
   return (
-    <>
+    <div className="homeScroll">
       <BackgroundGradient />
       <Suspense fallback={<LoadingScreen />}>
         <Scene />
@@ -20,7 +20,7 @@ export default function Home() {
       <ScrollHint />
       <SoundToggle />
       <PerformanceMonitor />
-    </>
+    </div>
   );
 }
 

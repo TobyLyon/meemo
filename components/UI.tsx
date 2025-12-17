@@ -2,28 +2,39 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
 import styles from "./UI.module.css";
 import { TOKEN_ADDRESS } from "@/config/constants";
 
 export default function UI() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const smoothed = useRef(0);
-  const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
   const tokenAddress = TOKEN_ADDRESS;
+  const displayAddress =
+    tokenAddress && tokenAddress.length > 14
+      ? `${tokenAddress.slice(0, 6)}...${tokenAddress.slice(-6)}`
+      : tokenAddress;
 
   useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    const updateIsMobile = () => setIsMobile(mql.matches);
+    updateIsMobile();
+    mql.addEventListener("change", updateIsMobile);
+
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = Math.min(scrollTop / docHeight, 1);
+      const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
       setScrollProgress(progress);
     };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      mql.removeEventListener("change", updateIsMobile);
+    };
   }, []);
 
   // Smooth the progress value to reduce abrupt transitions
@@ -55,9 +66,66 @@ export default function UI() {
         />
       </div>
 
+      {isMobile && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className={`${styles.contentSection} ${styles.aboveFooter}`}
+        >
+          <div className={`${styles.card} ${styles.cardCompact}`}>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                navigator.clipboard.writeText(tokenAddress);
+              }}
+              className={styles.tokenButton}
+            >
+              <span className={styles.tokenLabel}>Token Address</span>
+              <span className={styles.tokenAddress}>{displayAddress}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+              </svg>
+            </motion.button>
+            <div className={styles.buttonGroup} style={{ marginTop: "0.75rem" }}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={styles.primaryButton}
+                aria-label="Follow on X"
+                onClick={() => {
+                  window.open("https://x.com/MeemosMagic", "_blank", "noopener,noreferrer");
+                }}
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M3 3h3.6l5.1 6.9L15.8 3H21l-7.6 9.7L21 21h-3.6l-5.5-7.4L8.2 21H3l8-10.2L3 3z" />
+                </svg>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={styles.primaryButton}
+                aria-label="Join on Telegram"
+                onClick={() => {
+                  window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
+                }}
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M9.04 15.32l-.38 5.34c.54 0 .77-.23 1.05-.5l2.53-2.42 5.25 3.85c.96.53 1.64.25 1.9-.89l3.44-16.14h.01c.31-1.45-.52-2.02-1.45-1.66L1.9 9.4C.49 9.96.51 10.78 1.65 11.12l5.26 1.64 12.2-7.69c.57-.35 1.1-.16.67.22l-10.75 9.03z" />
+                </svg>
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
       {/* Section 1: Welcome - Story */}
       <AnimatePresence>
-        {activeSection === 0 && (
+        {!isMobile && activeSection === 0 && (
           <motion.div
             key="section-1"
             initial={{ opacity: 0, y: 50 }}
@@ -91,7 +159,7 @@ export default function UI() {
                 className={styles.tokenButton}
               >
                 <span className={styles.tokenLabel}>Token Address</span>
-                <span className={styles.tokenAddress}>{tokenAddress}</span>
+                <span className={styles.tokenAddress}>{displayAddress}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                   <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
@@ -116,7 +184,7 @@ export default function UI() {
 
       {/* Section 2: World Features */}
       <AnimatePresence>
-        {activeSection === 1 && (
+        {!isMobile && activeSection === 1 && (
           <motion.div
             key="section-2"
             initial={{ opacity: 0, x: -100 }}
@@ -222,7 +290,7 @@ export default function UI() {
 
       {/* Section 3: Coming Soon */}
       <AnimatePresence>
-        {activeSection === 2 && (
+        {!isMobile && activeSection === 2 && (
           <motion.div
             key="section-3"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -262,7 +330,7 @@ export default function UI() {
                   style={{ marginBottom: "2rem" }}
                 >
                   <span className={styles.tokenLabel}>Token Address</span>
-                <span className={styles.tokenAddress}>{tokenAddress}</span>
+                <span className={styles.tokenAddress}>{displayAddress}</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.copyIcon}>
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                     <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />

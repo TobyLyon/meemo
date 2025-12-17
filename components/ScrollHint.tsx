@@ -5,6 +5,15 @@ import { useEffect, useState } from "react";
 
 export default function ScrollHint() {
   const [show, setShow] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    const update = () => setIsMobile(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +35,7 @@ export default function ScrollHint() {
 
   return (
     <AnimatePresence>
-      {show && (
+      {!isMobile && show && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

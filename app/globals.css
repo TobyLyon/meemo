@@ -17,7 +17,24 @@ body {
 
 body {
   position: relative;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body {
+    min-height: 100vh;
+  }
+}
+
+.homeScroll {
   height: 300vh;
+}
+
+@media (max-width: 768px) {
+  .homeScroll {
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 /* Custom scrollbar */
