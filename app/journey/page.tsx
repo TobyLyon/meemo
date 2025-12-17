@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TOKEN_ADDRESS } from "@/config/constants";
+import { TELEGRAM_URL, TOKEN_ADDRESS } from "@/config/constants";
 
 export default function JourneyPage() {
   return (
@@ -68,7 +68,7 @@ export default function JourneyPage() {
 
         <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
           <a
-            href="https://t.me/meemosportal"
+            href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{

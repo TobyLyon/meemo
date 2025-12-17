@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./UI.module.css";
-import { TOKEN_ADDRESS } from "@/config/constants";
+import { TELEGRAM_URL, TOKEN_ADDRESS } from "@/config/constants";
 
 export default function UI() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -110,7 +110,7 @@ export default function UI() {
                 className={styles.primaryButton}
                 aria-label="Join on Telegram"
                 onClick={() => {
-                  window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
+                  window.open(TELEGRAM_URL, "_blank", "noopener,noreferrer");
                 }}
                 style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}
               >
@@ -274,7 +274,7 @@ export default function UI() {
                   className={styles.primaryButton}
                   aria-label="Join on Telegram"
                   onClick={() => {
-                    window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
+                    window.open(TELEGRAM_URL, "_blank", "noopener,noreferrer");
                   }}
                   style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "0.6rem 0.8rem" }}
                 >
@@ -342,7 +342,7 @@ export default function UI() {
                     whileTap={{ scale: 0.95 }}
                     className={styles.primaryButton}
                     onClick={() => {
-                    window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
+                    window.open(TELEGRAM_URL, "_blank", "noopener,noreferrer");
                     }}
                   >
                     Join
