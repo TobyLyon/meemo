@@ -185,6 +185,36 @@ export default function UI() {
                   <p>Fast, low-fee rails for real community.</p>
                 </motion.div>
               </div>
+              <div className={styles.buttonGroup} style={{ marginTop: "1rem" }}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={styles.primaryButton}
+                  aria-label="Follow on X"
+                  onClick={() => {
+                    window.open("https://x.com/MeemosMagic", "_blank", "noopener,noreferrer");
+                  }}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "0.6rem 0.8rem" }}
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                    <path d="M3 3h3.6l5.1 6.9L15.8 3H21l-7.6 9.7L21 21h-3.6l-5.5-7.4L8.2 21H3l8-10.2L3 3z" />
+                  </svg>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={styles.primaryButton}
+                  aria-label="Join on Telegram"
+                  onClick={() => {
+                    window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
+                  }}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "0.6rem 0.8rem" }}
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                    <path d="M9.04 15.32l-.38 5.34c.54 0 .77-.23 1.05-.5l2.53-2.42 5.25 3.85c.96.53 1.64.25 1.9-.89l3.44-16.14h.01c.31-1.45-.52-2.02-1.45-1.66L1.9 9.4C.49 9.96.51 10.78 1.65 11.12l5.26 1.64 12.2-7.69c.57-.35 1.1-.16.67.22l-10.75 9.03z" />
+                  </svg>
+                </motion.button>
+              </div>
             </div>
           </motion.div>
         )}
@@ -266,7 +296,7 @@ export default function UI() {
         <div className={styles.footerContent}>
           <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
-            <a href="https://x.com/TumisMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://x.com/MeemosMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
             <a href="https://t.me/meemosportal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
