@@ -14,19 +14,19 @@ export default function NavBar() {
     >
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoText}>tumi</span>
+          <span className={styles.logoText}>Meemo</span>
           <div className={styles.logoAccent} />
         </Link>
         <a
-          href="https://www.binance.com/"
+          href="https://solana.com/"
           className={styles.navLink}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Binance"
-          title="Binance"
+          aria-label="Solana"
+          title="Solana"
           style={{ display: "inline-flex", alignItems: "center", fontWeight: 600 }}
         >
-          Binance
+          Solana
         </a>
       </div>
       <nav className={styles.nav}>

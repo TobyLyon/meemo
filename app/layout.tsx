@@ -20,25 +20,25 @@ const notoSansTC = Noto_Sans_TC({
 });
 
 export const metadata: Metadata = {
-  title: "Tumi's World",
-  description: "When the market went dark, only one light bled through the pain. Tumi's World is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+  title: "Meemo's Magic Land",
+  description: "When the market went dark, only one light bled through the pain. Meemo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
   icons: {
     icon: [
-      { url: "/tumi-pfp.png?v=3", type: "image/png" },
+      { url: "/meemopfp%20.png?v=3", type: "image/png" },
       { url: "/favicon.ico?v=3" },
     ],
-    apple: "/tumi-pfp.png?v=3",
-    shortcut: "/tumi-pfp.png?v=3",
+    apple: "/meemopfp%20.png?v=3",
+    shortcut: "/meemopfp%20.png?v=3",
   },
   openGraph: {
-    title: "Tumi's World",
-    description: "When the market went dark, only one light bled through the pain. Tumi's World is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+    title: "Meemo's Magic Land",
+    description: "When the market went dark, only one light bled through the pain. Meemo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
     images: ["/tumis-banner.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tumi's World",
-    description: "When the market went dark, only one light bled through the pain. Tumi's World is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
+    title: "Meemo's Magic Land",
+    description: "When the market went dark, only one light bled through the pain. Meemo's Magic Land is a memecoin exclusively made to bring back the magic that once existed on-chain. Believers will win.",
     images: ["/tumis-banner.png"],
   },
 };
@@ -51,10 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${notoSansTC.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/tumi-pfp.png?v=3" sizes="any" />
-        <link rel="apple-touch-icon" href="/tumi-pfp.png?v=3" />
+        <link rel="icon" type="image/png" href="/meemopfp%20.png?v=3" sizes="any" />
+        <link rel="apple-touch-icon" href="/meemopfp%20.png?v=3" />
         <link rel="shortcut icon" href="/favicon.ico?v=3" />
-        <link rel="preload" href="/tumi world graphic.glb" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/meemo world graphic.glb" as="fetch" crossOrigin="anonymous" />
         <link rel="preload" href="/tumibgmusic.mp3" as="audio" type="audio/mpeg" />
       </head>
       <body>

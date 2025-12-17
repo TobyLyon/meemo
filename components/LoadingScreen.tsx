@@ -42,7 +42,7 @@ export default function LoadingScreen() {
           marginBottom: "2rem",
         }}
       >
-        Tumi
+        Meemo
       </motion.div>
       <motion.div
         style={{

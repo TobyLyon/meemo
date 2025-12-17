@@ -17,7 +17,7 @@ function TumiModel() {
   const group = useRef<Group>(null);
   
   // Load the GLB model
-  const { scene, animations } = useGLTF("/tumi world graphic.glb");
+  const { scene, animations } = useGLTF("/meemo world graphic.glb");
   const { actions, mixer } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -63,6 +63,6 @@ export default function TumiWorld() {
 }
 
 // Preload the model
-useGLTF.preload("/tumi world graphic.glb");
+useGLTF.preload("/meemo world graphic.glb");
 
 
