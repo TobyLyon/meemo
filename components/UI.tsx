@@ -80,7 +80,7 @@ export default function UI() {
               </h1>
               <p className={styles.subtitle}>Welcome</p>
               <p className={styles.description}>
-                Meemo is an art project created by Asian-American artist, Jeremy Wang and released as a memecoin on Solana
+                Meemo’s bringin’ the magic back 💗😍
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -135,7 +135,7 @@ export default function UI() {
                 style={{ background: "linear-gradient(135deg, #4ecdc4, #44a3d5)" }}
               />
               <h2 className={styles.sectionTitle}>
-                <span>Explore the World</span>
+                <span>Magic Returns to the Trenches</span>
               </h2>
               <div className={styles.featureGrid}>
                 <motion.div
@@ -149,8 +149,8 @@ export default function UI() {
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                   </div>
-                  <h3>Repair Quest</h3>
-                  <p>Gather · mend · glow</p>
+                  <h3>From Traders to Believers</h3>
+                  <p>Flip the meta: conviction over convenience.</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -165,8 +165,8 @@ export default function UI() {
                       <path d="M2 12h20M12 2v20" opacity="0.5" />
                     </svg>
                   </div>
-                  <h3>Heart</h3>
-                  <p>Kindness powers all</p>
+                  <h3>Magic, Not Hype</h3>
+                  <p>Art-first culture lighting up the trenches.</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -181,8 +181,8 @@ export default function UI() {
                       <circle cx="12" cy="12" r="3" fill="currentColor" />
                     </svg>
                   </div>
-                  <h3>Token</h3>
-                  <p>memecoin × art</p>
+                  <h3>Powered by Solana</h3>
+                  <p>Fast, low-fee rails for real community.</p>
                 </motion.div>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function UI() {
                 style={{ background: "linear-gradient(135deg, #ff6b6b, #ee5a6f)" }}
               />
               <h2 className={styles.sectionTitle}>
-                <span>Begin Your Journey</span>
+                <span>Join the Revival</span>
               </h2>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -220,7 +220,7 @@ export default function UI() {
                 className={styles.comingSoon}
               >
                 <p className={`${styles.releaseText} ${styles.releaseTextCompact}`}>
-                  Help mend Meemo — coming soon.
+                  Meemo is bringing magic back to the trenches — flipping traders into believers. Quests, drops, and world-building are rolling out. Stay close.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -244,7 +244,7 @@ export default function UI() {
                     whileTap={{ scale: 0.95 }}
                     className={styles.primaryButton}
                     onClick={() => {
-                    window.open("https://t.me/tumisportal", "_blank", "noopener,noreferrer");
+                    window.open("https://t.me/meemosportal", "_blank", "noopener,noreferrer");
                     }}
                   >
                     Join
@@ -267,7 +267,7 @@ export default function UI() {
           <p>© 2025 Meemo&apos;s Magic Land. All rights reserved.</p>
           <div className={styles.socialLinks}>
             <a href="https://x.com/TumisMagic" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="https://t.me/tumisportal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://t.me/meemosportal" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
       </motion.footer>
