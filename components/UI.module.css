@@ -431,11 +431,11 @@
     position: fixed;
     left: 50%;
     right: auto;
-    top: 75%;
+    top: 96px;
     bottom: auto;
-    transform: translate(-50%, -50%);
-    width: calc(100% - 2rem);
-    max-width: 420px;
+    transform: translateX(-50%);
+    width: min(92vw, 340px);
+    max-width: 340px;
     margin: 0;
     pointer-events: none;
   }
@@ -448,9 +448,9 @@
 
   .aboveFooter {
     bottom: auto; /* not needed when content is static */
-    top: 75%;
+    top: 96px;
     bottom: auto;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
   }
 
   .header {
@@ -466,7 +466,7 @@
   }
 
   .card {
-    padding: 0.75rem;
+    padding: 0.6rem;
     background: rgba(26, 26, 46, 0.55);
     max-height: none;
     overflow: visible;
@@ -481,7 +481,7 @@
   }
 
   .tokenButton {
-    padding: 0.5rem 0.6rem;
+    padding: 0.45rem 0.55rem;
     align-items: center;
     flex-wrap: nowrap;
   }
